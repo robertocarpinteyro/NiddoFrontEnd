@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class">
-          <Navbar />
+          <Navbar/>
           <div>{children}</div>
           <Footer />
           <PopupWidget />
