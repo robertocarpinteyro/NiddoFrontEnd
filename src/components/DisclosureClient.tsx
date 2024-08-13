@@ -7,7 +7,8 @@ import {
 } from "@headlessui/react";
 
 import Link from "next/link";
-import Image from "next/image";
+import { StrapiImage } from "./StrapiImage";
+
 
 interface LinkProps {
   text: string;
@@ -39,19 +40,18 @@ export function DisclosureClient(props: Readonly<DisclosureClientProps>) {
   return (
     <Disclosure>
       {({ open }) => (
-        <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
+        <div className="flex flex-wrap justify-between w-full lg:w-auto">
           <Link href={logo.href || "/"}>
             <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
               <span>
-                <Image
+                <StrapiImage
                   src={logo.image.url}
                   alt={logo.image.alternativeText || logo.image.name}
-                  width={32}
-                  height={32}
-                  className="w-8"
+                  width={128}
+                  height={128}
+                  className="w-20 items-center"
                 />
               </span>
-              <span>{logo.text}</span>
             </span>
           </Link>
 

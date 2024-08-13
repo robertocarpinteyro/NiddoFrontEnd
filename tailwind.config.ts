@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
@@ -16,6 +15,9 @@ const config: Config = {
       colors: {
         trueGray: colors.neutral,
       },
+      maxWidth: {
+        'custom': '5000px', // Añade un nuevo valor de max-width
+      },
     },
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
@@ -27,4 +29,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;

@@ -87,7 +87,8 @@ export async function Navbar() {
 
   return (
     <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
+
+      <nav className="container relative flex flex-wrap items-center justify-between p-5 mx-auto lg:justify-between xl:px-20 bg-opacity-60 bg-white border-8 border-double border-green-300 inset-x-0 rounded-l-none top-0 w-full z-50" style={{ borderRadius: '200px' }}>
         {/* Logo  */}
 
         <DisclosureClient topnav={data.topnav} />
