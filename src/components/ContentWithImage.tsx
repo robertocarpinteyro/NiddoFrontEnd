@@ -1,6 +1,27 @@
 import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
+import { getStrapiURL } from "@/lib/utils";
+import qs from "qs";
+import { StrapiImage } from "./StrapiImage";
+
+async function loader() {
+  const { fetchData } = await import("@/lib/fetch");
+
+  const path = "/api/sections/2";
+  const baseUrl = getStrapiURL();
+
+  const query = qs.stringify({
+    populate: "*",
+  });
+
+  const url = new URL(path, baseUrl);
+  url.search = query;
+
+  const data = await fetchData(url.href);
+  console.log("Data received from API:", data); // Log de los datos recibidos
+  return data;
+}
 
 interface ContentWithImageProps {
   data: {
@@ -18,8 +39,8 @@ interface ContentWithImageProps {
   };
 }
 
-export function ContentWithImage({ data }: Readonly<ContentWithImageProps>) {
-  if (!data) return null;
+export async function ContentWithImage() {
+  const data = (await loader()) as ContentWithImageProps["data"];
   const { heading, text, image, imageRight } = data;
   return (
     <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
@@ -29,7 +50,7 @@ export function ContentWithImage({ data }: Readonly<ContentWithImageProps>) {
         }`}
       >
         <div>
-          <Image
+          <StrapiImage
             src={image.url}
             width={521}
             height={521}
@@ -46,13 +67,17 @@ export function ContentWithImage({ data }: Readonly<ContentWithImageProps>) {
       >
         <div>
           <div className="flex flex-col w-full mt-4">
-            <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
+            <h3 className="items-center max-w-2xl mt-3 text-3xl font-bold leading-snug  tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
               {heading}
             </h3>
 
-            <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl dark:text-gray-300">
-              {text}
-            </p>
+            <p
+              className="text-center max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl dark:text-gray-300 "
+              style={{
+                fontFamily: "MuseoModerno",
+              }}
+              dangerouslySetInnerHTML={{ __html: text }}
+            ></p>
           </div>
         </div>
       </div>

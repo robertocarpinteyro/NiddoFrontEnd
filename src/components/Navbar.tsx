@@ -1,11 +1,9 @@
-
 import Link from "next/link";
 import { getStrapiURL } from "@/lib/utils";
 import qs from "qs";
 import ThemeChanger from "./DarkSwitch";
 import { DisclosureClient } from "@/components/DisclosureClient";
-
-
+import { MuseoModerno } from "next/font/google";
 async function loader() {
   const { fetchData } = await import("@/lib/fetch");
 
@@ -13,33 +11,32 @@ async function loader() {
   const baseUrl = getStrapiURL();
 
   const query = qs.stringify({
-      populate: {
-        topnav: {
-          populate: {
-            logoLink: {
-              populate: {
-                image: {
-                  fields: ["url", "alternativeText", "name"],
-                },
+    populate: {
+      topnav: {
+        populate: {
+          logoLink: {
+            populate: {
+              image: {
+                fields: ["url", "alternativeText", "name"],
               },
             },
-            link: {
-              populate: true,
-            },
-            cta: {
-              populate: true,
-            }
+          },
+          link: {
+            populate: true,
+          },
+          cta: {
+            populate: true,
           },
         },
       },
-    });
+    },
+  });
 
-    const url = new URL(path, baseUrl);
-    url.search = query;
+  const url = new URL(path, baseUrl);
+  url.search = query;
 
-    const data = await fetchData(url.href);
-    return data;
- 
+  const data = await fetchData(url.href);
+  return data;
 }
 
 interface NavbarData {
@@ -76,19 +73,23 @@ interface NavbarData {
     };
   };
   meta: Record<string, any>;
-
 }
 
 export async function Navbar() {
-  const data = await loader() as NavbarData;
+  const data = (await loader()) as NavbarData;
   if (!data) return null;
   const navigation = data.topnav.link;
   const cta = data.topnav.cta;
 
   return (
     <div className="w-full">
-
-      <nav className="container relative flex flex-wrap items-center justify-between p-5 mx-auto lg:justify-between xl:px-20 bg-opacity-60 bg-white border-8 border-double border-green-300 inset-x-0 rounded-l-none top-0 w-full z-50" style={{ borderRadius: '200px' }}>
+      <nav
+         className="fixed top-10 inset-x-0 z-50 flex flex-wrap items-center justify-between p-5 bg-opacity-100 bg-white border-8  w-full lg:max-w-5xl md:max-w-3xl sm:max-w-xl mx-auto"
+         style={{
+           borderRadius: '200px',
+           fontFamily: "MuseoModerno",
+         }}
+       >
         {/* Logo  */}
 
         <DisclosureClient topnav={data.topnav} />
@@ -100,7 +101,7 @@ export async function Navbar() {
               <li className="mr-3 nav__item" key={index}>
                 <Link
                   href={menu.href}
-                  className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                  className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
                   {menu.text}
                 </Link>
@@ -112,7 +113,7 @@ export async function Navbar() {
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
           <Link
             href={cta.href}
-            className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5"
+            className="px-6 py-2 text-white bg-niddoEsmeralda rounded-md md:ml-5"
             target={cta.external ? "_blank" : "_self"}
           >
             {cta.text}
@@ -123,5 +124,3 @@ export async function Navbar() {
     </div>
   );
 }
-
-

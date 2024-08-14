@@ -4,7 +4,7 @@ import { Container } from "@/components/Container";
 import { getStrapiURL } from "@/lib/utils";
 import qs from "qs";
 import { StrapiImage } from "./StrapiImage";
-
+import { Open_Sans } from "next/font/google";
 async function loader() {
   const { fetchData } = await import("@/lib/fetch");
 
@@ -53,19 +53,23 @@ export async function Hero() {
 
   return (
     <div
-      className="bg-cover bg-center min-h-screen flex items-center"
+      className="bg-cover bg-center w-full flex items-center pt-20"
       style={{
-        
+        borderBottomLeftRadius: '50px', 
+        borderBottomRightRadius: '50px',
         backgroundImage:`url("http://localhost:1337/uploads/fondo_20amarillo_20web_901ea75763.png")`,
       }}
     >
-      <Container className="flex flex-wrap h-full items-center">
+      <Container className="flex flex-wrap justify-center items-center px-11">
         <div className="flex items-center w-full lg:w-1/2">
-          <div className="max-w-2xl mb-8">
-            <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+          <div className="max-w-2xl mb-8" style={{
+           borderRadius: '200px',
+           fontFamily: "MuseoModerno",
+         }}>
+            <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight">
               {heading}
             </h1>
-            <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
+            <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl">
               {text}
             </p>
 
@@ -74,7 +78,7 @@ export async function Hero() {
                 href={cta.href}
                 target={cta.external ? "_blank" : "_self"}
                 rel="noopener"
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md "
+                className="px-8 py-4 text-lg font-medium text-center text-white bg-niddoEsmeralda rounded-md "
               >
                 {cta.text}
               </Link>

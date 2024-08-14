@@ -7,22 +7,26 @@ import { Video } from "@/components/Video";
 import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
-
+import { NextUIProvider } from "@nextui-org/react";
+import { Desarrollos } from "@/components/Desarrollos";
 export default function Home() {
   return (
-    <Container>
-      <Hero data={heroData} />
-      <SectionHeading data={sectionHeading} />
-      <Benefits data={benefitsData} />
-      <ContentWithImage data={contentWithImage} />
-      <SectionHeading data={sectionHeading} />
-      <Video data={videoData} />
-      <SectionHeading data={sectionHeading} />
-      <Testimonials data={testimonialsData} />
-      <SectionHeading data={sectionHeading} />
-      <Faq data={faqsData} />
-      <Cta data={ctaData} />
-    </Container>
+    <NextUIProvider>
+      <Container>
+        <Hero />
+        <SectionHeading data={sectionHeading} />
+        <Benefits data={benefitsData} />
+        <ContentWithImage />
+        <Desarrollos />
+        <SectionHeading data={sectionHeading} />
+        <Video data={videoData} />
+        <SectionHeading data={sectionHeading} />
+        <Testimonials data={testimonialsData} />
+        <SectionHeading data={sectionHeading} />
+        <Faq data={faqsData} />
+        <Cta data={ctaData} />
+      </Container>
+    </NextUIProvider>
   );
 }
 
