@@ -17,7 +17,7 @@ export function Video({ data }: Readonly<VideoProps>) {
   
   return (
     <Container>
-      <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl bg-indigo-300 cursor-pointer bg-gradient-to-tr from-purple-400 to-indigo-700">
+      <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl bg-niddoEsmeralda cursor-pointer bg-gradient-to-tr from-niddoEsmeralda to-yellow-400">
         {!playVideo && (
           <button
             onClick={() => setPlayVideo(!playVideo)}
@@ -40,7 +40,7 @@ export function Video({ data }: Readonly<VideoProps>) {
         )}
         {playVideo && (
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&autoplay=1`}
+            src={`https://vimeo.com/996499383#embed`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             className="w-full h-full aspect-video"
