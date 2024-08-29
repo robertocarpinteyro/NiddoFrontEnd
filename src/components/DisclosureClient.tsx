@@ -36,7 +36,7 @@ export function DisclosureClient(props: Readonly<DisclosureClientProps>) {
   const navigation = props.topnav.link;
   const logo = props.topnav.logoLink;
   const cta = props.topnav.cta;
-
+  
   return (
     <Disclosure>
       {({ open }) => (

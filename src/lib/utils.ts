@@ -1,3 +1,10 @@
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 export function flattenAttributes(data: any): any {
   // Check if data is a plain object; return as is if not
   if (
@@ -39,7 +46,7 @@ export function flattenAttributes(data: any): any {
 }
 
 export function getStrapiURL() {
-  return process.env.STRAPI_BASE_URL ?? "http://localhost:1337";
+  return process.env.STRAPI_BASE_URL ?? "http://localhost:1338";
 }
 
 export function getStrapiMedia(url: string | null) {

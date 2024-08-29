@@ -9,7 +9,7 @@ const nextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
-        port: "1337", // Especifica el puerto si es necesario
+        port: "1338", // Especifica el puerto si es necesario
       },
     ],
   },

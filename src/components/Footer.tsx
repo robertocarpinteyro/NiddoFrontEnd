@@ -1,76 +1,53 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
-
 import Link from "next/link";
-
 import Image from "next/image";
 import { Container } from "@/components/Container";
-
+import qs from "qs";
+import { getStrapiURL } from "@/lib/utils";
+import { StrapiImage } from "./StrapiImage";
 async function loader() {
-  const data = {
-    footer: {
-      id: 1,
-      description:
-        "Nextly is a free landing page & marketing website template for startups and indie projects. Its built with Next.js & TailwindCSS. And its completely open-source.",
-      logoLink: {
-        id: 2,
-        text: "Strapify",
-        href: "/",
-        image: {
-          id: 1,
-          url: "/img/logo.svg",
-          alternativeText: null,
-          name: "logo.svg",
+  const { fetchData } = await import("@/lib/fetch");
+  const path = "/api/global"; // Asegúrate de que esta sea la ruta correcta para obtener los datos del footer en Strapi.
+  const baseUrl = getStrapiURL();
+
+  const query = qs.stringify({
+    populate: {
+      footer: {
+        populate: {
+          logo: {
+            populate: {
+              image: {
+                fields: ["url", "alternativeText", "name"],
+              },
+            },
+          },
+          colOneLink: {
+            populate: true,
+          },
+          socialMedia: {
+            populate: true,
+          },
+          description: {
+            populate: true,
+          },
         },
       },
-      colOneLinks: [
-        { id: 9, href: "/", text: "Home", external: false },
-        { id: 10, href: "/features", text: "Features", external: false },
-        { id: 11, href: "/pricing", text: "Pricing", external: false },
-        { id: 12, href: "/company", text: "Company", external: false },
-        { id: 13, href: "/blog", text: "Blog", external: false },
-      ],
-      colTwoLinks: [],
-      socialLinks: {
-        id: 1,
-        heading: "Follow us!",
-        socialLink: [
-          {
-            id: 14,
-            href: "https://www.facebook.com",
-            text: "Facebook",
-            external: true,
-          },
-          {
-            id: 15,
-            href: "http://www.youtube.com",
-            text: "YouTube",
-            external: true,
-          },
-          {
-            id: 16,
-            href: "http://www.github.com",
-            text: "GitHub",
-            external: true,
-          },
-          {
-            id: 17,
-            href: "http://www.twitter.com",
-            text: "Twitter",
-            external: true,
-          },
-        ],
-      },
     },
-  };
+  });
+
+  const url = new URL(path, baseUrl);
+  url.search = query;
+
+  const data = await fetchData(url.href);
+  console.log("Datos:", data);
   return data;
 }
 
 interface FooterData {
   footer: {
-    id: number;
     description: string;
-    logoLink: {
+    logo: {
       id: number;
       text: string;
       href: string;
@@ -87,13 +64,7 @@ interface FooterData {
       text: string;
       external: boolean;
     }[];
-    colTwoLinks: {
-      id: number;
-      href: string;
-      text: string;
-      external: boolean;
-    }[];
-    socialLinks: {
+    socialMedia: {
       id: number;
       heading: string;
       socialLink: SocialLink[];
@@ -107,15 +78,19 @@ interface SocialLink {
   text: string;
   external: boolean;
 }
+
 function iconSelect(link: SocialLink) {
   if (!link) return null;
+  console.log("Error fetching bot response:", link.text);
   return (
     <SocialIcon
       network={link.text.toLocaleLowerCase()}
       url={link.href}
       target="_blank"
     />
+    
   );
+ 
 }
 
 export async function Footer() {
@@ -123,11 +98,8 @@ export async function Footer() {
   if (!data.footer) return null;
   const footer = data.footer;
 
-  console.dir(footer, { depth: null });
-  if (!data) return null;
-
-  const { logoLink, colOneLinks, colTwoLinks, socialLinks, description } =
-    footer;
+  const { logo, colOneLinks, socialMedia, description } = footer;
+  console.log("Error fetching bot response:", footer);
   return (
     <div className="relative">
       <Container>
@@ -135,17 +107,17 @@ export async function Footer() {
           <div className="lg:col-span-2">
             <div>
               <Link
-                href={logoLink.href}
+                href={"/"}
                 className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
               >
-                <Image
-                  src={logoLink.image.url}
-                  alt={logoLink.image.alternativeText || logoLink.image.name}
-                  width={32}
-                  height={32}
-                  className="w-8"
+                <StrapiImage
+                  src={logo.image.url}
+                  width={200}
+                  height={200}
+                  className={"object-cover"}
+                  alt={logo.image.alternativeText || "Hero Image"}
                 />
-                <span>{logoLink.text}</span>
+               
               </Link>
             </div>
 
@@ -153,31 +125,17 @@ export async function Footer() {
               {description}
             </div>
 
-            <div className="mt-5">
-              <a
-                href="https://vercel.com/?utm_source=web3templates&utm_campaign=oss"
-                target="_blank"
-                rel="noopener"
-                className="relative block w-44"
-              >
-                <Image
-                  src="/img/vercel.svg"
-                  alt="Powered by Vercel"
-                  width="212"
-                  height="44"
-                />
-              </a>
-            </div>
           </div>
 
           <div>
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {colOneLinks &&
                 colOneLinks.map((item, index) => (
+                  
                   <Link
                     key={index}
                     href={item.href}
-                    className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
+                    className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-niddoEsmeralda focus:text-niddoEsmeralda focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
                   >
                     {item.text}
                   </Link>
@@ -185,24 +143,10 @@ export async function Footer() {
             </div>
           </div>
           <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {colTwoLinks &&
-                colTwoLinks.map((item, index) => (
-                  <span
-                    key={index}
-                    // href={item.href}
-                    className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
-                  >
-                    {item.text}
-                  </span>
-                ))}
-            </div>
-          </div>
-          <div>
-            <div>{socialLinks.heading}</div>
+            <div>{socialMedia.heading}</div>
             <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              {socialLinks.socialLink &&
-                socialLinks.socialLink.map((item, index) => (
+              {socialMedia.socialLink &&
+                socialMedia.socialLink.map((item, index) => (
                   <div key={index}>
                     <span className="sr-only">{item.text}</span>
                     {iconSelect(item)}
@@ -213,26 +157,15 @@ export async function Footer() {
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}. Made with ♥ by{" "}
-          <a href="https://web3templates.com/" target="_blank" rel="noopener">
-            Web3Templates.
+          Copyright © {new Date().getFullYear()}. Diseñada por{" "}
+          <a href="https://oasiscreativa.com/" target="_blank" rel="noopener">
+            Oasis Creativa.
           </a>{" "}
-          updated by{" "}
-          <a
-            href="https://youtube.com/c/codingafterthirty"
-            target="_blank"
-            rel="noopener"
-          >
-            Paul
-          </a>{" "}
-          Illustrations from{" "}
-          <a href="https://www.glazestock.com/" target="_blank" rel="noopener ">
-            Glazestock
-          </a>
+         
         </div>
       </Container>
       {/* Do not remove this */}
-      <Backlink />
+     
     </div>
   );
 }

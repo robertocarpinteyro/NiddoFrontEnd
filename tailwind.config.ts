@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
-const {nextui} = require("@nextui-org/react");
+const { nextui } = require("@nextui-org/react");
 
 const config: Config = {
   mode: "jit",
@@ -19,11 +19,20 @@ const config: Config = {
         trueGray: colors.neutral,
       },
       maxWidth: {
-        'custom': '5000px', // Añade un nuevo valor de max-width
+        custom: "6000px", // Añade un nuevo valor de max-width
+      },
+      animation: {
+         'slide-left': 'slide-left 25s linear infinite',
+      },
+      keyframes: {
+        "slide-left": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
       },
     },
     fontFamily: {
-      sans: ["Museo","Inter", ...defaultTheme.fontFamily.sans],
+      sans: ["Museo", "Inter", ...defaultTheme.fontFamily.sans],
       stock: [defaultTheme.fontFamily.sans],
     },
   },

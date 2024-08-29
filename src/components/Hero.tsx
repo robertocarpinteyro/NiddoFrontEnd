@@ -8,16 +8,16 @@ import { Open_Sans } from "next/font/google";
 async function loader() {
   const { fetchData } = await import("@/lib/fetch");
 
-  const path = "/api/sections/1";
+  const path = "/api/sections/3";
   const baseUrl = getStrapiURL();
-
+  console.log("Data received from API:", baseUrl); // Log de los datos recibidos
   const query = qs.stringify({
     populate: "*",
   });
 
   const url = new URL(path, baseUrl);
   url.search = query;
-
+  console.log("Data received from API:", url.href);
   const data = await fetchData(url.href);
   console.log("Data received from API:", data); // Log de los datos recibidos
   return data;
@@ -48,7 +48,7 @@ interface HeroProps {
 export async function Hero() {
   const data = (await loader()) as HeroProps["data"];
   const { heading, text, cta, image, bg } = data;
-  console.log("bg URL", bg.url); 
+  console.log("cta", cta.href); 
   if (!data) return null;
 
   return (
@@ -57,7 +57,7 @@ export async function Hero() {
       style={{
         borderBottomLeftRadius: '50px', 
         borderBottomRightRadius: '50px',
-        backgroundImage:`url("http://localhost:1337/uploads/fondo_20amarillo_20web_901ea75763.png")`,
+        backgroundImage:`url("http://localhost:1338/uploads/fondo_20amarillo_20web_36161123af.png")`,
       }}
     >
       <Container className="flex flex-wrap justify-center items-center px-11">

@@ -5,25 +5,28 @@ import { Benefits } from "@/components/Benefits";
 import { ContentWithImage } from "@/components/ContentWithImage";
 import { Video } from "@/components/Video";
 import { Testimonials } from "@/components/Testimonials";
-import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 import Niddia from "@/components/Niddia";
 import { NextUIProvider } from "@nextui-org/react";
 import { GridDisplay } from "@/components/Desarrollos";
+import { Footer } from "@/components/Footer";
+import LogoSlider from "@/components/logoSlider";
+import { PopupWidget } from "@/components/PopupWidget";
+import { Faq } from "@/components/Faq";
+import { ImageCarousel } from "@/components/ImageCarousel";
+import { AcercaDe } from "@/components/AcercaDe";
 export default function Home() {
   return (
     <NextUIProvider>
       <Container>
         <Hero />
-       
-
         <ContentWithImage />
-      
         <GridDisplay />
-        <Niddia/>
+      </Container>
+      <AcercaDe />
+      <Container>
         <Video data={videoData} />
-
-
+        <Footer />
       </Container>
     </NextUIProvider>
   );
