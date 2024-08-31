@@ -84,7 +84,7 @@ export async function Navbar() {
   if (!data) return null;
   const navigation = data.topnav.link;
   const cta = data.topnav.cta;
-  console.log("cta", data.topnav.cta.href); 
+  console.log("cta", data.topnav.cta); 
   return (
     <div className="w-full">
       <nav

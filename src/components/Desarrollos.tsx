@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardHeader,
@@ -7,10 +8,10 @@ import {
   Image,
   Button,
 } from "@nextui-org/react";
-
 import qs from "qs";
 import { getStrapiURL } from "@/lib/utils";
 import { StrapiImage } from "./StrapiImage";
+
 async function loader() {
   const { fetchData } = await import("@/lib/fetch");
   const path = "/api/desarrollos";
@@ -43,11 +44,24 @@ interface GridData {
     alternativeText: string | null;
     name: string;
   };
-
 }
-export async function GridDisplay() {
-  const gridData: GridData[] = await loader();
-  console.log("Data received from API:", gridData);
+
+export function GridDisplay() {
+  const [gridData, setGridData] = useState<GridData[] | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await loader();
+      setGridData(data);
+    };
+
+    if (!gridData) {
+      fetchData();
+    }
+  }, [gridData]);
+
+  if (!gridData) return <div>Cargando...</div>;
+
   return (
     <div className="flex flex-wrap gap-6 p-4 justify-center">
       {gridData.map((desarrollo) => (
@@ -84,9 +98,11 @@ export async function GridDisplay() {
               </div>
 
               <div className="flex flex-col">
-                <p className="text-tiny text-white/60">{desarrollo.nombre} {desarrollo.desarrollador}</p>
                 <p className="text-tiny text-white/60">
-                {desarrollo.amenidades}
+                  {desarrollo.nombre} {desarrollo.desarrollador}
+                </p>
+                <p className="text-tiny text-white/60">
+                  {desarrollo.amenidades}
                 </p>
               </div>
             </div>

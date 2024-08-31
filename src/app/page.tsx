@@ -23,10 +23,9 @@ export default function Home() {
         <ContentWithImage />
         <GridDisplay />
       </Container>
-      <AcercaDe />
+
       <Container>
         <Video data={videoData} />
-        <Footer />
       </Container>
     </NextUIProvider>
   );
