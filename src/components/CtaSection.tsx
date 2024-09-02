@@ -12,24 +12,66 @@ const reviews = [
     name: "Jack",
     id: "1",
     body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "/img/amenidadesNiddia.png",
+    img: "/img/slide/1.jpg",
   },
   {
     name: "Jill",
     id: "2",
     body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "/img/amenidadesNiddia.png",
+    img: "/img/slide/2.jpg",
   },
   {
     name: "John",
     id: "3",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "/img/amenidadesNiddia.png",
+    img: "/img/slide/3.jpg",
+  },
+  {
+    name: "John",
+    id: "4",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "/img/slide/4.jpg",
+  },
+  {
+    name: "John",
+    id: "5",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "/img/slide/5.jpg",
+  },
+  {
+    name: "John",
+    id: "6",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "/img/slide/6.jpg",
+  },
+  {
+    name: "John",
+    id: "7",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "/img/slide/7.jpg",
+  },
+  {
+    name: "John",
+    id: "8",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "/img/slide/8.jpg",
+  },
+  {
+    name: "John",
+    id: "9",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "/img/slide/9.jpg",
+  },
+  {
+    name: "John",
+    id: "10",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "/img/slide/10.jpg",
   },
 ];
 
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+const firstRow = reviews.slice( reviews.length / 2);
+const secondRow = reviews.slice(1,reviews.length / 2);
 
 const ReviewCard = ({
   img,

@@ -26,9 +26,8 @@ export const FloatingNav = ({
   }[];
   logo: {
     href: string;
-  }
+  };
 
-  
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
@@ -52,7 +51,7 @@ export const FloatingNav = ({
       }
     }
   });
-  if (pathname === '/niddia' || pathname === '/niddiaDesarrollos') {
+  if (pathname === "/niddia" || pathname === "/niddiaDesarrollos") {
     return null;
   }
 
@@ -99,7 +98,7 @@ export const FloatingNav = ({
           width={100}
           height={100}
           alt="Niddia Impulsada por inteligencia aritifical"
-         
+          className=" pl-5"
         />
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -112,7 +111,9 @@ export const FloatingNav = ({
         </ul>
       </div>
       <Button>
-        <a>Chatea con Niddia</a>
+        <Link href="/niddia">
+          Chatea con Niddia
+        </Link>
       </Button>
     </div>
   );
