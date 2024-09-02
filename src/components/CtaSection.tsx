@@ -65,47 +65,59 @@ const ReviewCard = ({
 
 export function Ctasection() {
   return (
-      <div className="bg-white py-6 sm:py-8 lg:py-12">
-        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-          <div className="flex flex-col overflow-hidden rounded-lg bg-[#ffdf00] sm:flex-row md:h-50">
-            <div className="flex w-full flex-col  sm:w-1/2 sm:p-8 lg:w-2/5">
-              <h2 className="mb-4 text-xl font-bold text-black md:text-2xl lg:text-4xl">
-              ¿Por qué elegirnos?
-                <br />
-              </h2>
-
-              <p className="mb-8 max-w-md text-black">
-              Niddo es una plataforma inmobiliaria de lujo que combina tecnología avanzada con atención personalizada para ofrecerte una experiencia única y eficiente en la búsqueda de propiedades. Nuestra tecnología avanzada incluye inteligencia artificial y algoritmos de aprendizaje automático que analizan tus preferencias y necesidades para ofrecerte recomendaciones precisas y personalizadas. 
-              Con Niddia, nuestra asistente virtual, disfrutarás de una búsqueda ágil y adaptada a tus requerimientos específicos, asegurando que cada propiedad cumpla con tus expectativas.
-              </p>
-
-            
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div className="lg:pr-4">
+            <div className="relative flex h-[600px] w-full flex-row items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+              <Marquee pauseOnHover vertical className="[--duration:20s]">
+                {firstRow.map((review) => (
+                  <ReviewCard key={review.id} {...review} />
+                ))}
+              </Marquee>
+              <Marquee
+                reverse
+                pauseOnHover
+                vertical
+                className="[--duration:20s]"
+              >
+                {secondRow.map((review) => (
+                  <ReviewCard key={review.id} {...review} />
+                ))}
+              </Marquee>
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div>
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div>
             </div>
-
-            <div className="order-first h-48 w-full bg-[#ffdf00] sm:order-none sm:h-auto sm:w-1/2 lg:w-3/5">
-              <div className="relative flex h-[500px] w-full flex-row items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-                <Marquee pauseOnHover vertical className="[--duration:20s]">
-                  {firstRow.map((review) => (
-                    <ReviewCard key={review.id} {...review} />
-                  ))}
-                </Marquee>
-                <Marquee
-                  reverse
-                  pauseOnHover
-                  vertical
-                  className="[--duration:20s]"
-                >
-                  {secondRow.map((review) => (
-                    <ReviewCard key={review.id} {...review} />
-                  ))}
-                </Marquee>
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div>
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div>
+          </div>
+          <div>
+            <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
+              <p className="text-base font-semibold leading-7 text-yellow-400">
+                Nosotros
+              </p>
+              <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Niddo es una plataforma inmobiliaria de lujo 
+              </h1>
+              <div className="max-w-xl">
+                <p className="mt-6">
+                que combina tecnología avanzada con atención personalizada 
+                para ofrecerte una experiencia única y eficiente en la búsqueda de propiedades. 
+                Nuestra tecnología avanzada incluye inteligencia artificial y algoritmos de aprendizaje automático que analizan 
+                tus preferencias y necesidades para ofrecerte recomendaciones precisas y personalizadas. 
+                </p>
+                <p className="mt-8">
+                Con Niddia, nuestra asistente virtual, disfrutarás de una búsqueda ágil y adaptada a tus requerimientos específicos, 
+                segurando que cada propiedad cumpla con tus expectativas.Try dividing your life days into equal times and do every
+               
+                </p>
               </div>
             </div>
+            <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
+              
+            </dl>
+            
           </div>
         </div>
       </div>
-
+    </div>
   );
 }

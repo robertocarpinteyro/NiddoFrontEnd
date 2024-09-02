@@ -78,7 +78,7 @@ export function GridDisplay() {
   if (!gridData) return <div>Cargando...</div>;
 
   return (
-    <div className="flex flex-wrap gap-6 p-4 justify-center">
+    <div id="desarrollos" className="flex flex-wrap gap-6 p-4 justify-center">
       {gridData.map((desarrollo) => (
         <Card
           key={desarrollo.id}

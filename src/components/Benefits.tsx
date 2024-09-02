@@ -21,7 +21,7 @@ const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 export function Benefits() {
   return (
     <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap mt-20">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
+      <div id="acerca" className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
         <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-niddoEsmeralda min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
           <div className="text-left">
             <div className="sm:px-28">

@@ -15,8 +15,8 @@ import { Video } from "@/components/Video";
 const inter = Inter({ subsets: ["latin"] });
 const navItems = [
   { name: "Inicio", link: "#inicio", icon: <Hero/> },
-  { name: "Acerca de", link: "/about", icon: <AcercaDe /> },
-  { name: "Desarrollos", link: "/services"},
+  { name: "Acerca de", link: "#acerca", icon: <AcercaDe /> },
+  { name: "Desarrollos", link: "#desarrollos"},
 ];
 const logo = {
   href: "/img/logoblack.png"
