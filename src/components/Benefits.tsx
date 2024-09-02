@@ -1,118 +1,75 @@
 import React from "react";
 import Image from "next/image";
 import { Container } from "@/components/Container";
-
+import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
 import { CheckIcon } from "@heroicons/react/20/solid";
-
-function iconSelect(iconKey: string) {
-  switch (iconKey) {
-    case "CHECK":
-      return <CheckIcon className="w-7 h-7 text-indigo-50" />;
-    default:
-      return null;
-  }
-}
-
-
-interface BenefitProps {
-  data: {
-    id: number;
-    __component: string;
-    heading: string;
-    text: string;
-    imageRight: boolean | null;
-    image: {
-      id: number;
-      url: string;
-      alternativeText: string | null;
-      name: string;
-    };
-    item: {
-      id: number;
-      text: string;
-      icon: string | null;
-      heading: string;
-    }[];
-  };
-}
-
-export function Benefits({ data }: BenefitProps) {
-  const { heading, text, image, item, imageRight } = data;
+import { WobbleCard } from "./ui/wobble-card";
+const placeholders = [
+  "¿Tienes opciones en una zona segura y tranquila?",
+  "¿Qué inmuebles están cerca de mi lugar de trabajo?",
+  "¿Cuáles son las mejores opciones de casas en mi presupuesto?",
+  "¿Cuáles son las mejores zonas para familias con niños?",
+  "¿Puedes mostrarme casas con acceso a áreas verdes o naturales?",
+];
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  console.log(e.target.value);
+};
+const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log("submitted");
+};
+export function Benefits() {
   return (
-    <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
-      <div
-        className={`flex items-center justify-center w-full lg:w-1/2 ${
-          imageRight ? "lg:order-1" : ""
-        }`}
-      >
-        <div>
-          <Image
-            src={image.url}
-            width={521}
-            height={521}
-            alt={image.alternativeText || image.name}
-            className={"object-cover"}
+    <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap mt-20">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
+        <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-niddoEsmeralda min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
+          <div className="text-left">
+            <div className="sm:px-28">
+              <section className="relative flex items-center w-full">
+                <div className="relative items-center w-full px-5 mx-auto md:px-12 lg:px-16 max-w-7xl">
+                  <div className="relative flex-col items-start m-auto align-middle">
+                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-24">
+                      <div className="relative items-center gap-10 m-auto lg:inline-flex md:order-first">
+                        <div className="max-w-xl text-center lg:text-left">
+                          <div>
+                            <p className="text-3xl font-semibold tracking-tight text-[#201515] sm:text-5xl">
+                              Utilizo tecnología avanzada
+                            </p>
+                            <p className="max-w-xl mt-4 text-base tracking-tight text-gray-600">
+                              y mi profundo conocimiento sobre el mercado
+                              inmobiliario para ayudarte a encontrar la
+                              propiedad perfecta.
+                            </p>
+                          </div>
+                      
+                        </div>
+                      </div>
+                      <div className="order-first block w-full mt-12 aspect-square lg:mt-0">
+                        <Image
+                          src="/img/amenidadesNiddia.png"
+                          width={500}
+                          height={500}
+                          alt="Niddia Impulsada por inteligencia aritifical"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div className="mt-20" />
+
+            <section></section>
+          </div>
+
+          <PlaceholdersAndVanishInput
+            placeholders={placeholders}
+            onChange={handleChange}
+            onSubmit={onSubmit}
           />
-        </div>
-      </div>
-
-      <div
-        className={`flex flex-wrap items-center w-full lg:w-1/2 ${
-          imageRight ? "lg:justify-end" : ""
-        }`}
-      >
-        <div>
-          <div className="flex flex-col w-full mt-4">
-            <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
-              {heading}
-            </h3>
-
-            <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl dark:text-gray-300">
-              {text}
-            </p>
-          </div>
-
-          <div className="w-full mt-5">
-            {item.map((item, index) => (
-              <Benefit
-                key={index}
-                data={item}
-              ></Benefit>
-            ))}
-          </div>
-        </div>
+        </WobbleCard>
       </div>
     </Container>
-  );
-}
-
-interface BenefitItemProps {
-  data: {
-    id: number;
-    text: string;
-    icon: string | null;
-    heading: string;
-  };
-}
-
-function Benefit({ data }: Readonly<BenefitItemProps>) {
-  if (!data) return null;
-  const { heading, text, icon } = data;
-  return (
-    <div className="flex items-start mt-8 space-x-3">
-      {icon && (
-        <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-indigo-500 rounded-md w-11 h-11 ">
-          {iconSelect(icon)}
-        </div>
-      )}
-      <div>
-        <h4 className="text-xl font-medium text-gray-800 dark:text-gray-200">
-          {heading}
-        </h4>
-        {text && (
-          <p className="mt-1 text-gray-500 dark:text-gray-400">{text}</p>
-        )}
-      </div>
-    </div>
   );
 }

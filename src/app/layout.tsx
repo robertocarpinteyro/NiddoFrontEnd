@@ -1,14 +1,26 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-
+import { FloatingNav } from "@/components/ui/floating-navbar";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PopupWidget }  from "@/components/PopupWidget";
+import { Hero } from "@/components/Hero";
+import { AcercaDe } from "@/components/AcercaDe";
+import { Video } from "@/components/Video";
 
 
 const inter = Inter({ subsets: ["latin"] });
+const navItems = [
+  { name: "Inicio", link: "#inicio", icon: <Hero/> },
+  { name: "Acerca de", link: "/about", icon: <AcercaDe /> },
+  { name: "Desarrollos", link: "/services"},
+];
+const logo = {
+  href: "/img/logoblack.png"
+};
 
 export const metadata: Metadata = {
   title: "Niddo Real Estate",
@@ -20,11 +32,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
+    
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class">
-  
+        <FloatingNav navItems={navItems} className="" logo={logo}/>
           <div>{children}</div>
          
 

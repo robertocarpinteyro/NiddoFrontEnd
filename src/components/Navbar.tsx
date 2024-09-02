@@ -8,48 +8,13 @@ import { MuseoModerno } from "next/font/google";
 import React, { createContext } from "react";
 import { motion } from "framer-motion";
 import { menu } from "@nextui-org/react";
-async function loader() {
-  const { fetchData } = await import("@/lib/fetch");
 
-  const path = "/api/global";
-  const baseUrl = getStrapiURL();
 
-  const query = qs.stringify({
-    populate: {
-      topnav: {
-        populate: {
-          logoLink: {
-            populate: {
-              image: {
-                fields: ["url", "alternativeText", "name"],
-              },
-            },
-          },
-          link: {
-            populate: true,
-          },
-          cta: {
-            populate: true,
-          },
-        },
-      },
-    },
-  });
 
-  const url = new URL(path, baseUrl);
-  url.search = query;
-
-  const data = await fetchData(url.href);
-  return data;
-}
 
 interface NavbarData {
   id: number;
   title: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
   topnav: {
     id: number;
     logoLink: {
@@ -76,15 +41,48 @@ interface NavbarData {
       external: boolean;
     };
   };
-  meta: Record<string, any>;
 }
 
-export async function Navbar() {
-  const data = (await loader()) as NavbarData;
+export const Navbar= ({
+  data,
+  className,
+}: {
+  data: {
+    id: number;
+    title: string;
+    topnav: {
+      id: number;
+      logoLink: {
+        id: number;
+        text: string;
+        href: string;
+        image: {
+          id: number;
+          url: string;
+          alternativeText: string | null;
+          name: string;
+        };
+      };
+      link: {
+        id: number;
+        href: string;
+        text: string;
+        external: boolean;
+      }[];
+      cta: {
+        id: number;
+        href: string;
+        text: string;
+        external: boolean;
+      };
+    };
+  }[];
+  className?: string;
+}) => {
   if (!data) return null;
   const navigation = data.topnav.link;
   const cta = data.topnav.cta;
-  console.log("cta", data.topnav.cta); 
+ console.log ("datos",)
   return (
     <div className="w-full">
       <nav

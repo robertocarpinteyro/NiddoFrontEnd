@@ -4,10 +4,12 @@
 
 
 
-@layer base {
-  html,
-  body {
-    @apply dark:bg-black;
-  }
-}
 
+@layer base {
+    html,
+    body {
+      @apply dark:bg-black;
+    }
+  }
+  
+  

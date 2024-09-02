@@ -6,43 +6,6 @@ import { Container } from "@/components/Container";
 import qs from "qs";
 import { getStrapiURL } from "@/lib/utils";
 import { StrapiImage } from "./StrapiImage";
-async function loader() {
-  const { fetchData } = await import("@/lib/fetch");
-  const path = "/api/global"; // Asegúrate de que esta sea la ruta correcta para obtener los datos del footer en Strapi.
-  const baseUrl = getStrapiURL();
-
-  const query = qs.stringify({
-    populate: {
-      footer: {
-        populate: {
-          logo: {
-            populate: {
-              image: {
-                fields: ["url", "alternativeText", "name"],
-              },
-            },
-          },
-          colOneLink: {
-            populate: true,
-          },
-          socialMedia: {
-            populate: true,
-          },
-          description: {
-            populate: true,
-          },
-        },
-      },
-    },
-  });
-
-  const url = new URL(path, baseUrl);
-  url.search = query;
-
-  const data = await fetchData(url.href);
-  console.log("Datos:", data);
-  return data;
-}
 
 interface FooterData {
   footer: {
@@ -88,111 +51,91 @@ function iconSelect(link: SocialLink) {
       url={link.href}
       target="_blank"
     />
-    
   );
- 
 }
 
-export async function Footer() {
-  const data = (await loader()) as FooterData;
-  if (!data.footer) return null;
-  const footer = data.footer;
-
-  const { logo, colOneLinks, socialMedia, description } = footer;
-  console.log("Error fetching bot response:", footer);
+export const Footer = ({
+  footerItems,
+}: {
+  footerItems: {
+    logo: string;
+    link: string;
+    text: string;
+    text2: string;
+    text3: string;
+  };
+  className?: string;
+}) => {
   return (
-    <div className="relative">
-      <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <div>
-              <Link
-                href={"/"}
-                className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
-              >
-                <StrapiImage
-                  src={logo.image.url}
-                  width={200}
-                  height={200}
-                  className={"object-cover"}
-                  alt={logo.image.alternativeText || "Hero Image"}
-                />
-               
-              </Link>
-            </div>
+    <footer className="footer footer-center bg-[#ffdf00] text-black-content p-10">
+      <aside>
+        <Image
+          src="/img/app-icon.png"
+          alt=""
+          width="50"
+          height="50"
+          className="inline-block fill-current"
+        />
 
-            <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              {description}
-            </div>
-
-          </div>
-
-          <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {colOneLinks &&
-                colOneLinks.map((item, index) => (
-                  
-                  <Link
-                    key={index}
-                    href={item.href}
-                    className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-niddoEsmeralda focus:text-niddoEsmeralda focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
-                  >
-                    {item.text}
-                  </Link>
-                ))}
-            </div>
-          </div>
-          <div>
-            <div>{socialMedia.heading}</div>
-            <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              {socialMedia.socialLink &&
-                socialMedia.socialLink.map((item, index) => (
-                  <div key={index}>
-                    <span className="sr-only">{item.text}</span>
-                    {iconSelect(item)}
-                  </div>
-                ))}
-            </div>
-          </div>
+        <p className="font-bold">
+          {footerItems.text}
+          <br />
+          {footerItems.text2}
+        </p>
+        <p>Copyright © {new Date().getFullYear()} - Niddo Real Estate 2024</p>
+      </aside>
+      <nav>
+        <div className="grid grid-flow-col gap-4">
+          <a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              className="fill-current"
+            >
+              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+            </svg>
+          </a>
+          <a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              className="fill-current"
+            >
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+            </svg>
+          </a>
+          <a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              className="fill-current"
+            >
+              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+            </svg>
+          </a>
         </div>
-
-        <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}. Diseñada por{" "}
-          <a href="https://oasiscreativa.com/" target="_blank" rel="noopener">
-            Oasis Creativa.
-          </a>{" "}
-         
-        </div>
-      </Container>
-      {/* Do not remove this */}
-     
-    </div>
+      </nav>
+    </footer>
   );
-}
+};
 const Backlink = () => {
   return (
-    <a
-      href="https://web3templates.com"
-      target="_blank"
-      rel="noopener"
-      className="absolute flex px-3 py-1 space-x-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded shadow-sm place-items-center left-5 bottom-5 dark:bg-trueGray-900 dark:border-trueGray-700 dark:text-trueGray-300"
-    >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 30 30"
-        fill="none"
-        className="w-4 h-4"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect width="30" height="29.5385" rx="2.76923" fill="#362F78" />
-        <path
-          d="M10.14 21.94H12.24L15.44 12.18L18.64 21.94H20.74L24.88 8H22.64L19.58 18.68L16.36 8.78H14.52L11.32 18.68L8.24 8H6L10.14 21.94Z"
-          fill="#F7FAFC"
-        />
-      </svg>
+    <a href="https://niddo.com" target="_blank" rel="noopener">
+      <Image
+        src="/img/app-icon.png"
+        alt=""
+        layout="fill"
+        objectFit="cover"
+        className="rounded-xl"
+      />
 
-      <span>Web3Templates</span>
+      <span>Designed by Oasis Creattiva</span>
     </a>
   );
 };

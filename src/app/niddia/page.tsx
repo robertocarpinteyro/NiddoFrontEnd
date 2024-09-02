@@ -7,15 +7,18 @@ import { Video } from "@/components/Video";
 import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
-import Niddia from "@/components/Niddia";
+import { SidebarDemo } from "@/components/Niddia";
 import { NextUIProvider } from "@nextui-org/react";
 import { GridDisplay } from "@/components/Desarrollos";
+import { NiddiaDesarrollos } from "@/components/NiddiaDesarrollos";
 export default function Home() {
+  
   return (
     <NextUIProvider>
-      <Container>
-        <Niddia />
-      </Container>
+
+        <SidebarDemo />
+
+
     </NextUIProvider>
   );
 }

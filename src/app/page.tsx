@@ -1,3 +1,4 @@
+"use client";
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -6,31 +7,44 @@ import { ContentWithImage } from "@/components/ContentWithImage";
 import { Video } from "@/components/Video";
 import { Testimonials } from "@/components/Testimonials";
 import { Cta } from "@/components/Cta";
-import Niddia from "@/components/Niddia";
 import { NextUIProvider } from "@nextui-org/react";
-import { GridDisplay } from "@/components/Desarrollos";
 import { Footer } from "@/components/Footer";
 import LogoSlider from "@/components/logoSlider";
 import { PopupWidget } from "@/components/PopupWidget";
 import { Faq } from "@/components/Faq";
 import { ImageCarousel } from "@/components/ImageCarousel";
 import { AcercaDe } from "@/components/AcercaDe";
+import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
+import { GridDisplay } from "@/components/Desarrollos";
+import { Ctasection } from "@/components/CtaSection";
 export default function Home() {
   return (
+    
     <NextUIProvider>
       <Container>
         <Hero />
-        <ContentWithImage />
-        <GridDisplay />
+        <Benefits />
       </Container>
-
-      <Container>
-        <Video data={videoData} />
-      </Container>
+      <Ctasection />
+      <GridDisplay/>
+      <Footer footerItems={footerData} />
     </NextUIProvider>
   );
 }
-
+const placeholders = [
+  "¿Tienes opciones en una zona segura y tranquila?",
+  "¿Qué inmuebles están cerca de mi lugar de trabajo?",
+  "¿Cuáles son las mejores opciones de casas en mi presupuesto?",
+  "¿Cuáles son las mejores zonas para familias con niños?",
+  "¿Puedes mostrarme casas con acceso a áreas verdes o naturales?",
+];
+const footerData = {
+  logo: "/img/app-icon.png",
+  link: "",
+  text: "",
+  text2: "",
+  text3: "",
+};
 const heroData = {
   id: 1,
   __component: "layout.hero",
@@ -50,6 +64,13 @@ const heroData = {
   },
 };
 
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  console.log(e.target.value);
+};
+const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log("submitted");
+};
 const sectionHeading = {
   id: 1,
   __component: "layout.section-heading",

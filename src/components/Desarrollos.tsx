@@ -18,7 +18,22 @@ async function loader() {
   const baseUrl = getStrapiURL();
 
   const query = qs.stringify({
-    populate: "*",
+    populate: {
+      id: {
+      },
+      nombre: {
+      },
+      miniatura: {
+        fields: ["url", "alternativeText", "name"],
+      },
+      desarollador: {
+      },
+      amennidades: {
+      },
+      logo: {
+        fields: ["url", "alternativeText", "name"],
+      },
+    },
   });
 
   const url = new URL(path, baseUrl);
