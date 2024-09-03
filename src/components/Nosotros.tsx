@@ -49,8 +49,8 @@ export function Nosotros() {
           </div>
           <Image
             src="/img/casaAmbar.jpg"
-            width={2432} // Aumenta el tamaño aquí
-            height={1442} // Aumenta el tamaño aquí
+            width={500} // Aumenta el tamaño aquí
+            height={500} // Aumenta el tamaño aquí
             alt="Niddia Impulsada por inteligencia artificial"
             className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
           />
