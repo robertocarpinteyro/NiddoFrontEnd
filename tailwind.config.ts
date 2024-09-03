@@ -24,7 +24,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class", // or 'media' or 'class'
+  darkMode: "media", // or 'media' or 'class'
   theme: {
     container: {
       center: true,
@@ -84,9 +84,8 @@ const config: Config = {
       },
     },
     fontFamily: {
-      sans: ["Museo", "Inter", ...defaultTheme.fontFamily.sans],
       museo: ["Museo", "Inter", ...defaultTheme.fontFamily.sans],
-      stock: [defaultTheme.fontFamily.sans],
+      stock: [defaultTheme.fontFamily.museo],
     },
   },
   variants: {
