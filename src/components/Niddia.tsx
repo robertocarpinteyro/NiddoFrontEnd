@@ -180,7 +180,7 @@ const Dashboard = () => {
               ></iframe>
             </div>
           </div>
-          <div className="col-span-2 p-6 rounded-2xl bg-gray-50 flex flex-col justify-between h-full">
+          <div className="col-span-2 p-6 rounded-2xl bg-gray-50 flex flex-col justify-between h-full font-museo">
             <Slider>
               {/* Image with hover effect */}
               <div className="relative h-full w-full group">
