@@ -207,9 +207,9 @@ export function GridDisplay() {
               <div className="flex flex-row items-center space-x-4 z-10 transition-opacity duration-300 opacity-0 group-hover/card:opacity-100">
                 <Image
                   src={desarrollo.logo.url}
-                  className=" rounded-full border-2 object-cover w-full h-full"
-                  width={50}
-                  height={50}
+                  className=" rounded-full border-2 object-fill"
+                  width={40}
+                  height={40}
                   alt={
                     desarrollo.miniatura.alternativeText ||
                     desarrollo.miniatura.name
