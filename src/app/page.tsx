@@ -1,20 +1,12 @@
 "use client";
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
-import { SectionHeading } from "@/components/SectionHeading";
+import { GridDisplay } from "@/components/Desarrollos";
 import { Benefits } from "@/components/Benefits";
-import { ContentWithImage } from "@/components/ContentWithImage";
-import { Video } from "@/components/Video";
-import { Cta } from "@/components/Cta";
+
 import { NextUIProvider } from "@nextui-org/react";
 import { Footer } from "@/components/Footer";
-import LogoSlider from "@/components/logoSlider";
-import { PopupWidget } from "@/components/PopupWidget";
-import { Faq } from "@/components/Faq";
-import { ImageCarousel } from "@/components/ImageCarousel";
-import { AcercaDe } from "@/components/AcercaDe";
-import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
-import { GridDisplay } from "@/components/Desarrollos";
+
 import { Ctasection } from "@/components/CtaSection";
 import MarqueeComponent from "@/components/desarrollos/SliderCard";
 import { Nosotros } from "@/components/Nosotros";
