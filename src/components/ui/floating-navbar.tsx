@@ -61,14 +61,16 @@ export const FloatingNav = ({
 
   return (
     <div
-      className={`navbar fixed top-10 inset-x-0 z-50 flex flex-wrap items-center justify-between p-5 w-full lg:max-w-5xl md:max-w-3xl sm:max-w-xl mx-auto transition-all duration-300 ${
+      className={`font-museo navbar fixed top-10 inset-x-0 z-50 flex flex-wrap items-center justify-between p-5 w-full lg:max-w-5xl md:max-w-3xl sm:max-w-xl mx-auto transition-all duration-300 ${
         isScrolled
           ? "bg-white/70 backdrop-blur-lg shadow-lg"
           : "bg-white bg-opacity-100"
       }`}
-    
+      style={{
+        borderRadius: "200px",
+      }}
     >
-      <div className="navbar-start font-museo">
+      <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
