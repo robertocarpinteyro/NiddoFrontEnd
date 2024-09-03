@@ -116,7 +116,7 @@ export function Ctasection() {
           >
             ¿Por qué elegirnos?
           </h1>
-          <p className="mt-4 text-lg">
+          <p className="mt-4 text-lg font-museo">
             Niddo es una plataforma inmobiliaria de lujo que utiliza
             inteligencia artificial y algoritmos avanzados para ofrecer
             recomendaciones personalizadas y eficientes en la búsqueda de

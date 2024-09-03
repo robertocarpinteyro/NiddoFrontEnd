@@ -78,11 +78,9 @@ export function GridDisplay() {
     <div
       id="desarrollos"
       className="flex flex-wrap gap-6 p-4 justify-center "
-      style={{
-        fontFamily: "MuseoModerno",
-      }}
+ 
     >
-      <div className="px-10 py-24 mx-auto max-w-7xl">
+      <div className="px-10 py-24 mx-auto max-w-7xl font-museo">
         <div className="w-full mx-auto text-left md:text-center">
           <h1 className="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-900 sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight">
             Nuestros{" "}
@@ -90,7 +88,7 @@ export function GridDisplay() {
               Desarrollos
             </span>{" "}
           </h1>
-          <p className="px-0 mb-6 text-lg text-gray-600 md:text-xl lg:px-24">
+          <p className="px-0 mb-6 text-lg text-gray-600 md:text-xl lg:px-24 font-museo">
             Cada uno de nuestros proyectos residenciales está pensado para
             ofrecer amenidades exepcionales, brindando una calidad de vida
             única.
