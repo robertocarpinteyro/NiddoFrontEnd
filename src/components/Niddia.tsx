@@ -11,7 +11,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Testimonials from "./Testimonials";
-
+import ThreeColTestimonials from "./TestimonialCollection";
 import Slider from "./Slider";
 import { Card, CardHeader, Image, CardBody } from "@nextui-org/react";
 export function SidebarDemo() {
@@ -203,7 +203,7 @@ const Dashboard = () => {
               </div>
 
               <div className="h-full w-full">
-                <Testimonials/>
+                <ThreeColTestimonials/>
               </div>
             </Slider>
           </div>
