@@ -66,12 +66,9 @@ export const FloatingNav = ({
           ? "bg-white/70 backdrop-blur-lg shadow-lg"
           : "bg-white bg-opacity-100"
       }`}
-      style={{
-        borderRadius: "200px",
-        fontFamily: "MuseoModerno",
-      }}
+    
     >
-      <div className="navbar-start">
+      <div className="navbar-start font-museo">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
