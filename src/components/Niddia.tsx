@@ -10,26 +10,25 @@ import {
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-
+import { Testimonials } from "./Testimonials";
 import { Image } from "@nextui-org/react";
-
+import Slider from "./Slider";
 export function SidebarDemo() {
   const links = [
     {
       label: "Niddo",
-      href: "#",
+      href: "http://localhost:3000/",
       icon: (
         <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Recorridos Virtuales",
-      href: "#",
+      href: "http://localhost:3000/niddiaDesarrollos",
       icon: (
         <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
-    
   ];
   const [open, setOpen] = useState(false);
   return (
@@ -62,14 +61,12 @@ export const Logo = () => {
       href="#"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
-      
       <Image
-          src="/img/niddiaLogo.png"
-          width="auto"
-          height="auto"
-          alt="Niddia Impulsada por inteligencia aritifical"
-         
-        />
+        src="/img/niddiaLogo.png"
+        width="auto"
+        height="auto"
+        alt="Niddia Impulsada por inteligencia aritifical"
+      />
     </Link>
   );
 };
@@ -81,12 +78,11 @@ export const LogoIcon = () => {
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       <Image
-          src="/img/app-icon.png"
-          width="auto"
-          height="auto"
-          alt="Niddia Impulsada por inteligencia aritifical"
-         
-        />
+        src="/img/app-icon.png"
+        width="auto"
+        height="auto"
+        alt="Niddia Impulsada por inteligencia aritifical"
+      />
     </Link>
   );
 };
@@ -123,7 +119,6 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 px-4 xl:p-0 gap-y-4 md:gap-6">
           <div className="md:col-span-2 xl:col-span-3 bg-white p-6 rounded-2xl border border-gray-50">
             <div className="flex flex-col space-y-6 md:h-full md:justify-between">
-
               <iframe
                 className="h-full w-full rounded-lg  bg-gray-100 dark:bg-neutral-800"
                 id="mindstudio-frame"
@@ -131,137 +126,51 @@ const Dashboard = () => {
                 style={{
                   width: "100%",
                   height: "85vh",
-                  border: "5px solid rgba(253,255,72,0.8)",
+                  border: "none",
                   borderRadius: "8px",
                   outline: "none",
-                  backgroundColor: "rgba(253,255,72,0.8)",
+                  backgroundColor: "gray",
                 }}
                 title="Niddia"
                 frameBorder="0"
               ></iframe>
-
             </div>
           </div>
-          <div className="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-800 flex flex-col justify-between">
-            <div className="flex flex-col">
-              <p className="text-white font-bold">Lorem ipsum dolor sit amet</p>
-              <p className="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-                soluta saepe consequuntur facilis ab a. Molestiae ad saepe
-                assumenda praesentium rem dolore? Exercitationem, neque
-                obcaecati?
-              </p>
-            </div>
-            <div className="flex justify-between items-end">
-              <a
-                href="#"
-                className="bg-blue-800 px-4 py-3 rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-blue-600 hover:text-white"
-              >
-                Learn More
-              </a>
-              <Image
-                src="/calendar.png"
-                alt="calendar"
-                width={96}
-                height={96}
-                className="w-auto h-24 object-cover"
-              />
-            </div>
+          <div className="col-span-2 p-6 rounded-2xl bg-gray-50 flex flex-col justify-between ">
+            <Slider>
+              <div className="min-w-full ">
+                <Testimonials />
+              </div>
+              {/* Agrega más componentes dentro del slider aquí */}
+              <div className="min-w-full h-full">
+                <div className="h-full w-full">
+                  <div
+                    className={cn(
+                      "h-full w-full p-6 rounded-2xl bg-gray-50 flex flex-col justify-between",
+                      "group cursor-pointer overflow-hidden relative rounded-md shadow-xl border border-transparent dark:border-neutral-800",
+                      "bg-[url(https://images.unsplash.com/photo-1476842634003-7dcca8f832de?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)] bg-cover",
+                      "before:bg-[url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWlodTF3MjJ3NnJiY3Rlc2J0ZmE0c28yeWoxc3gxY2VtZzA5ejF1NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syEfLvksYQnmM/giphy.gif)] before:fixed before:inset-0 before:opacity-0 before:z-[-1]",
+                      "hover:bg-[url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWlodTF3MjJ3NnJiY3Rlc2J0ZmE0c28yeWoxc3gxY2VtZzA5ejF1NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syEfLvksYQnmM/giphy.gif)]",
+                      "hover:after:content-[''] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-50",
+                      "transition-all duration-500"
+                    )}
+                  >
+                    <div className="text relative z-50">
+                      <h1 className="font-bold text-xl md:text-3xl text-gray-50 relative">
+                        Background Overlays
+                      </h1>
+                      <p className="font-normal text-base text-gray-50 relative my-4">
+                        This card is for some special elements, like displaying
+                        background gifs on hover only.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Slider>
           </div>
         </div>
         {/* Second Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 xl:p-0 gap-4 xl:gap-6">
-          <div className="bg-white p-6 rounded-xl border border-gray-50">
-            <div className="flex justify-between items-start">
-              <div className="flex flex-col">
-                <p className="text-xs text-gray-600 tracking-wide">
-                  Foods & Beverages
-                </p>
-                <h3 className="mt-1 text-lg text-blue-500 font-bold">$ 818</h3>
-                <span className="mt-4 text-xs text-gray-500">
-                  Last Transaction 3 Hours ago
-                </span>
-              </div>
-              <div className="bg-blue-500 p-2 md:p-1 xl:p-2 rounded-md">
-                <Image
-                  src="/dish-2.png"
-                  alt="icon"
-                  width={32}
-                  height={32}
-                  className="w-auto h-8 md:h-6 xl:h-8 object-cover"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-gray-50">
-            <div className="flex justify-between items-start">
-              <div className="flex flex-col">
-                <p className="text-xs text-gray-600 tracking-wide">Groceries</p>
-                <h3 className="mt-1 text-lg text-green-500 font-bold">
-                  $ 8,918
-                </h3>
-                <span className="mt-4 text-xs text-gray-500">
-                  Last Transaction 3 Days ago
-                </span>
-              </div>
-              <div className="bg-green-500 p-2 md:p-1 xl:p-2 rounded-md">
-                <Image
-                  src="/grocery.png"
-                  alt="icon"
-                  width={32}
-                  height={32}
-                  className="w-auto h-8 md:h-6 xl:h-8 object-cover"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-gray-50">
-            <div className="flex justify-between items-start">
-              <div className="flex flex-col">
-                <p className="text-xs text-gray-600 tracking-wide">Gaming</p>
-                <h3 className="mt-1 text-lg text-yellow-500 font-bold">
-                  $ 1,223
-                </h3>
-                <span className="mt-4 text-xs text-gray-600">
-                  Last Transaction 4 Days ago
-                </span>
-              </div>
-              <div className="bg-yellow-500 p-2 md:p-1 xl:p-2 rounded-md">
-                <Image
-                  src="/gaming.png"
-                  alt="icon"
-                  width={32}
-                  height={32}
-                  className="w-auto h-8 md:h-6 xl:h-8 object-cover"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-gray-50">
-            <div className="flex justify-between items-start">
-              <div className="flex flex-col">
-                <p className="text-xs text-gray-600 tracking-wide">
-                  Trip & Holiday
-                </p>
-                <h3 className="mt-1 text-lg text-indigo-500 font-bold">
-                  $ 5,918
-                </h3>
-                <span className="mt-4 text-xs text-gray-500">
-                  Last Transaction 1 Month ago
-                </span>
-              </div>
-              <div className="bg-indigo-500 p-2 md:p-1 xl:p-2 rounded-md">
-                <Image
-                  src="/holiday.png"
-                  alt="icon"
-                  width={32}
-                  height={32}
-                  className="w-auto h-8 md:h-6 xl:h-8 object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </main>
   );

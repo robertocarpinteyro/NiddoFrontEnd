@@ -36,6 +36,8 @@ const config: Config = {
     extend: {
       colors: {
         niddoEsmeralda: "#00ccd3",
+        niddoAmarillo: "#ffdf00",
+
         trueGray: colors.neutral,
       },
       maxWidth: {
@@ -46,7 +48,7 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
-
+        marquee2: 'marquee2 20s linear infinite',
          'slide-left': 'slide-left 25s linear infinite',
       },
       keyframes: {
@@ -70,11 +72,20 @@ const config: Config = {
           from: { transform: "translateY(0)" },
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
+        marquee2: {
+          '0%': {
+              transform: 'translateX(0)'
+          },
+          '100%': {
+              transform: 'translateX(-100%)'
+          },
+      },
 
       },
     },
     fontFamily: {
       sans: ["Museo", "Inter", ...defaultTheme.fontFamily.sans],
+      museo: ["Museo", "Inter", ...defaultTheme.fontFamily.sans],
       stock: [defaultTheme.fontFamily.sans],
     },
   },

@@ -70,8 +70,8 @@ const reviews = [
   },
 ];
 
-const firstRow = reviews.slice( reviews.length / 2);
-const secondRow = reviews.slice(1,reviews.length / 2);
+const firstRow = reviews.slice(reviews.length / 2);
+const secondRow = reviews.slice(1, reviews.length / 2);
 
 const ReviewCard = ({
   img,
@@ -85,7 +85,7 @@ const ReviewCard = ({
   return (
     <figure
       className={cn(
-        "relative h-40 w-36 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-56 w-52 cursor-pointer overflow-hidden rounded-xl border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
@@ -107,57 +107,38 @@ const ReviewCard = ({
 
 export function Ctasection() {
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pr-4">
-            <div className="relative flex h-[600px] w-full flex-row items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-              <Marquee pauseOnHover vertical className="[--duration:20s]">
-                {firstRow.map((review) => (
-                  <ReviewCard key={review.id} {...review} />
-                ))}
-              </Marquee>
-              <Marquee
-                reverse
-                pauseOnHover
-                vertical
-                className="[--duration:20s]"
-              >
-                {secondRow.map((review) => (
-                  <ReviewCard key={review.id} {...review} />
-                ))}
-              </Marquee>
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div>
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div>
-            </div>
-          </div>
-          <div>
-            <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
-              <p className="text-base font-semibold leading-7 text-yellow-400">
-                Nosotros
-              </p>
-              <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Niddo es una plataforma inmobiliaria de lujo 
-              </h1>
-              <div className="max-w-xl">
-                <p className="mt-6">
-                que combina tecnología avanzada con atención personalizada 
-                para ofrecerte una experiencia única y eficiente en la búsqueda de propiedades. 
-                Nuestra tecnología avanzada incluye inteligencia artificial y algoritmos de aprendizaje automático que analizan 
-                tus preferencias y necesidades para ofrecerte recomendaciones precisas y personalizadas. 
-                </p>
-                <p className="mt-8">
-                Con Niddia, nuestra asistente virtual, disfrutarás de una búsqueda ágil y adaptada a tus requerimientos específicos, 
-                segurando que cada propiedad cumpla con tus expectativas.Try dividing your life days into equal times and do every
-               
-                </p>
-              </div>
-            </div>
-            <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
-              
-            </dl>
-            
-          </div>
+    <div className="mx-auto my-10 w-screen max-w-screen-xl px-4">
+      <div className="flex items-center rounded-xl bg-gradient-to-r from-niddoAmarillo to-niddoAmarillo px-8 text-black shadow-lg">
+        <div className="my-10 lg:my-8 lg:w-1/2">
+          <h1
+            className="text-3xl font-bold"
+            style={{
+              fontFamily: "MuseoModerno",
+            }}
+          >
+            ¿Por qué elegirnos?
+          </h1>
+          <p className="mt-4 text-lg">
+            Niddo es una plataforma inmobiliaria de lujo que utiliza
+            inteligencia artificial y algoritmos avanzados para ofrecer
+            recomendaciones personalizadas y eficientes en la búsqueda de
+            propiedades. <br />
+            Con la ayuda de Niddia, nuestra asistente virtual, disfrutarás de
+            una experiencia ágil y adaptada a tus necesidades, asegurando que
+            cada opción se alinee perfectamente con tus expectativas.
+          </p>
+        </div>
+        <div className="hidden h-96 w-1/2 flex-shrink-0 justify-center lg:flex">
+          <Marquee pauseOnHover vertical className="[--duration:60s]">
+            {firstRow.map((review) => (
+              <ReviewCard key={review.id} {...review} />
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover vertical className="[--duration:60s]">
+            {secondRow.map((review) => (
+              <ReviewCard key={review.id} {...review} />
+            ))}
+          </Marquee>
         </div>
       </div>
     </div>

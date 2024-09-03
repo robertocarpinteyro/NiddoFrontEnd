@@ -17,6 +17,8 @@ import { AcercaDe } from "@/components/AcercaDe";
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 import { GridDisplay } from "@/components/Desarrollos";
 import { Ctasection } from "@/components/CtaSection";
+import MarqueeComponent from "@/components/desarrollos/SliderCard";
+import { Nosotros } from "@/components/Nosotros";
 export default function Home() {
   return (
     
@@ -25,8 +27,12 @@ export default function Home() {
         <Hero />
         <Benefits />
       </Container>
-      <Ctasection />
+      <MarqueeComponent />
       <GridDisplay/>
+      <Ctasection />
+      <Container>
+      <Nosotros/>
+      </Container>
       <Footer footerItems={footerData} />
     </NextUIProvider>
   );

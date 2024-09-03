@@ -50,7 +50,7 @@ export function NiddiaDesarrollos() {
   return (
     <div
       className={cn(
-        "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full max-w-7xl mx-auto border border-neutral-200 dark:border-neutral-700",
+        "rounded-md flex flex-col md:flex-row bg-black dark:bg-neutral-800 w-full max-w-7xl mx-auto border border-neutral-200 dark:border-neutral-700",
         "h-full min-h-screen"
       )}
     >
@@ -182,28 +182,28 @@ const sliderData = [
     img: "/img/casaAmbar.jpg",
     title: "Casa Ambar",
     description:
-      "The earth's geological history opens before your eyes in a mile-deep chasm",
+      "",
     location: "Bosque Real",
   },
   {
     img: "/img/skyview.jpg",
     title: "SkyView",
     description:
-      "Wild animals in their natural environment, luxury safari lodges",
+      "",
     location: "Bosque Real",
   },
   {
     img: "/img/ivy.jpg",
     title: "Ivy",
     description:
-      "A stunning ancient jungle city with hundreds of intricately constructed temples",
+      "",
     location: "Bosque Real",
   },
   {
     img: "/img/blue.jpg",
     title: "Blue",
     description:
-      "Tropical beaches, volcano hikes, ancient temples, and friendly people",
+      "",
     location: "Bosque Real",
   },
 ];

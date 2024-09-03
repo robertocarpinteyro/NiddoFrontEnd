@@ -1,22 +1,14 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
-import { cn } from "@/lib/utils";
+import React, { useState, useEffect } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import { Button } from "./moving-border";
-import { StrapiImage } from "../StrapiImage";
-import { NavbarItem } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
+
 export const FloatingNav = ({
   navItems,
   className,
-
   logo,
 }: {
   navItems: {
@@ -27,19 +19,16 @@ export const FloatingNav = ({
   logo: {
     href: string;
   };
-
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-
   const [visible, setVisible] = useState(false);
-  const pathname = usePathname(); // Obtiene la ruta actual
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       let direction = current! - scrollYProgress.getPrevious()!;
-
       if (scrollYProgress.get() < 0.05) {
         setVisible(false);
       } else {
@@ -51,14 +40,32 @@ export const FloatingNav = ({
       }
     }
   });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   if (pathname === "/niddia" || pathname === "/niddiaDesarrollos") {
     return null;
   }
 
   return (
     <div
-      className="navbar fixed top-10 inset-x-0 z-50 flex flex-wrap items-center justify-between p-5 bg-opacity-100
-     bg-white w-full lg:max-w-5xl md:max-w-3xl sm:max-w-xl mx-auto"
+      className={`navbar fixed top-10 inset-x-0 z-50 flex flex-wrap items-center justify-between p-5 w-full lg:max-w-5xl md:max-w-3xl sm:max-w-xl mx-auto transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/70 backdrop-blur-lg shadow-lg"
+          : "bg-white bg-opacity-100"
+      }`}
       style={{
         borderRadius: "200px",
         fontFamily: "MuseoModerno",
@@ -98,7 +105,7 @@ export const FloatingNav = ({
           width={100}
           height={100}
           alt="Niddia Impulsada por inteligencia aritifical"
-          className=" pl-5"
+          className="pl-5"
         />
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -111,9 +118,7 @@ export const FloatingNav = ({
         </ul>
       </div>
       <Button>
-        <Link href="/niddia">
-          Chatea con Niddia
-        </Link>
+        <Link href="/niddia">Chatea con Niddia</Link>
       </Button>
     </div>
   );
