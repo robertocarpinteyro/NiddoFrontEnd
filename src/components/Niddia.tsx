@@ -205,7 +205,7 @@ const Dashboard = () => {
               </div>
 
               <div className="h-full w-full">
-                <Testimonials />
+                
               </div>
             </Slider>
           </div>
