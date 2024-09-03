@@ -68,6 +68,7 @@ export const FloatingNav = ({
       }`}
       style={{
         borderRadius: "200px",
+        fontFamily: "",
       }}
     >
       <div className="navbar-start">
