@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import OtherInfo from "./OtherInfo";
 import { IoMdBookmark } from "react-icons/io";
 import { Data, CurrentSlideData } from "../NiddiaDesarrollos";
-
+import Link from "next/link";
 type Props = {
   transitionData: Data;
   currentSlideData: CurrentSlideData;
@@ -23,11 +23,14 @@ function SlideInfo({ transitionData, currentSlideData }: Props) {
         >
           <IoMdBookmark className=" text-xl font-museo" />
         </button>
+
         <button
           className=" w-fit rounded-full border-[1px] border-[#ffffff8f] px-6 py-3 text-[10px] font-thin transition duration-300 
             ease-in-out hover:bg-white hover:text-black "
         >
+          <Link href={currentSlideData.data.description}>
           Visita virtual
+          </Link>
         </button>
       </motion.div>
     </>

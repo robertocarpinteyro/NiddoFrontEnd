@@ -226,15 +226,13 @@ const sliderData = [
     description:
       "",
     location: "Bosque Real",
-    href: "",
   },
   {
     img: "/img/skyview.jpg",
     title: "SkyView",
     description:
-      "",
+      "https://sky-kappa-one.vercel.app/",
     location: "Bosque Real",
-    href: "",
   },
   {
     img: "/img/ivy.jpg",

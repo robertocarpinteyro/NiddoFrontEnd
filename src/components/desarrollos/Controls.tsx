@@ -1,7 +1,7 @@
 import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Progress from "./Progress";
-import { CurrentSlideData, Data } from "@/pages";
+import { CurrentSlideData, Data } from "../NiddiaDesarrollos";
 
 type Props = {
   currentSlideData: CurrentSlideData;
