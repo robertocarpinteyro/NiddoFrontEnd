@@ -231,21 +231,21 @@ const sliderData = [
     img: "/img/skyview.jpg",
     title: "SkyView",
     description:
-      "https://sky-kappa-one.vercel.app/",
+      "https://sky-kappa-one.vercel.app",
     location: "Bosque Real",
   },
   {
     img: "/img/ivy.jpg",
     title: "Ivy",
     description:
-      "",
+      "https://niddoivy-niddo-team.vercel.app/",
     location: "Bosque Real",
   },
   {
     img: "/img/blue.jpg",
     title: "Blue",
     description:
-      "",
+      "https://blue-brown-six.vercel.app/",
     location: "Bosque Real",
   },
 ];
