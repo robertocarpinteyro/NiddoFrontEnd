@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import OtherInfo from "./OtherInfo";
 import { IoMdBookmark } from "react-icons/io";
-import { Data, CurrentSlideData } from "@/pages";
+import { Data, CurrentSlideData } from "../NiddiaDesarrollos";
 
 type Props = {
   transitionData: Data;

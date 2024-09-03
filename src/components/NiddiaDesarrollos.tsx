@@ -226,6 +226,7 @@ const sliderData = [
     description:
       "",
     location: "Bosque Real",
+    href: "",
   },
   {
     img: "/img/skyview.jpg",
@@ -233,6 +234,7 @@ const sliderData = [
     description:
       "",
     location: "Bosque Real",
+    href: "",
   },
   {
     img: "/img/ivy.jpg",
