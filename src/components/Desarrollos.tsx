@@ -171,10 +171,7 @@ export function GridDisplay() {
   return (
     <div
       id="desarrollos"
-      className="flex flex-wrap gap-6 p-4 justify-center "
-      style={{
-        fontFamily: "MuseoModerno",
-      }}
+      className="flex flex-wrap gap-6 p-4 justify-center font-museo"
     >
       <div className="px-10 py-24 mx-auto max-w-7xl">
         <div className="w-full mx-auto text-left md:text-center">
