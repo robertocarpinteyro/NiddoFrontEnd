@@ -56,8 +56,8 @@ export function Testimonials() {
 
             <blockquote className="mt-8 flex-1">
               <p className="text-lg leading-relaxed text-blue-900">
-                "Me gusto mucho que hubiera una asistente virtual, te hace
-                sentir que vas completamente acompañado en cada paso"
+                Me gusto mucho que hubiera una asistente virtual, te hace
+                sentir que vas completamente acompañado en cada paso
               </p>
             </blockquote>
           </div>
@@ -123,9 +123,9 @@ export function Testimonials() {
 
             <blockquote className="mt-8 flex-1">
               <p className="text-lg leading-relaxed text-blue-900">
-                "La primera impresión una pantalla bien estructurada normal,
+                La primera impresión una pantalla bien estructurada normal,
                 posteriormente al interactuar te va gustando más la dinámica del
-                chat de nidia y los reccorridos"
+                chat de nidia y los reccorridos
               </p>
             </blockquote>
           </div>
