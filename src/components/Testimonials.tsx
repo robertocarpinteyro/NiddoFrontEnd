@@ -2,10 +2,7 @@ import React from "react";
 import { Container } from "@/components/Container";
 import Image from "next/image";
 
-
-
 export function Testimonials() {
-
   return (
     <div className="relative mx-auto grid  max-w-lg grid-cols-1 gap-6 lg:mr-0 lg:gap-10">
       <div className="flex flex-col rounded-3xl overflow-hidden shadow-xl shadow-green-50">
@@ -56,8 +53,8 @@ export function Testimonials() {
 
             <blockquote className="mt-8 flex-1">
               <p className="text-lg leading-relaxed text-blue-900">
-                Me gusto mucho que hubiera una asistente virtual, te hace
-                sentir que vas completamente acompañado en cada paso
+                &quot;Me gusto mucho que hubiera una asistente virtual, te hace
+                sentir que vas completamente acompañado en cada paso&quot;
               </p>
             </blockquote>
           </div>
@@ -123,9 +120,9 @@ export function Testimonials() {
 
             <blockquote className="mt-8 flex-1">
               <p className="text-lg leading-relaxed text-blue-900">
-                La primera impresión una pantalla bien estructurada normal,
-                posteriormente al interactuar te va gustando más la dinámica del
-                chat de nidia y los reccorridos
+                &quot;La primera impresión una pantalla bien estructurada
+                normal, posteriormente al interactuar te va gustando más la
+                dinámica del chat de nidia y los recorridos&quot;
               </p>
             </blockquote>
           </div>
