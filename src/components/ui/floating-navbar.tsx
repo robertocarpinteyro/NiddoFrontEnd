@@ -118,7 +118,7 @@ export const FloatingNav = ({
         </ul>
       </div>
       <Button>
-        <Link href="/niddia">Chatea con Niddia</Link>
+        <Link href="https://www.niddo.ai/niddia">Chatea con Niddia</Link>
       </Button>
     </div>
   );

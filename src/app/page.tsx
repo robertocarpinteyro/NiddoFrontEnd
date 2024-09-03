@@ -12,17 +12,16 @@ import MarqueeComponent from "@/components/desarrollos/SliderCard";
 import { Nosotros } from "@/components/Nosotros";
 export default function Home() {
   return (
-    
     <NextUIProvider>
       <Container>
         <Hero />
         <Benefits />
       </Container>
       <MarqueeComponent />
-      <GridDisplay/>
+      <GridDisplay />
       <Ctasection />
       <Container>
-      <Nosotros/>
+        <Nosotros />
       </Container>
       <Footer footerItems={footerData} />
     </NextUIProvider>

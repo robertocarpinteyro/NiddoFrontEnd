@@ -20,7 +20,7 @@ const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 };
 export function Benefits() {
   return (
-    <Container className="flex justify-center items-center mb-20 mt-20">
+    <Container className="flex justify-center items-center mb-20 mt-20 font-museo">
       <div
         id="acerca"
         className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full"

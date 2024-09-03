@@ -84,7 +84,7 @@ const config: Config = {
       },
     },
     fontFamily: {
-      museo: ["Museo", "Inter", ...defaultTheme.fontFamily.sans],
+      museo: ['"Museo Moderno"', ...defaultTheme.fontFamily.sans],
       stock: [defaultTheme.fontFamily.museo],
     },
   },

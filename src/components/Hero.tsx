@@ -91,11 +91,8 @@ export function Hero() {
       <Container className="flex flex-wrap justify-center items-center px-11">
         <div className="flex items-center w-full lg:w-1/2">
           <div
-            className="max-w-2xl mb-8"
-            style={{
-              borderRadius: "300px",
-              fontFamily: "MuseoModerno",
-            }}
+            className="max-w-2xl mb-8 font-museo"
+        
           >
             <h1>
               <TextGenerateEffect duration={5} filter={false} words={heading} />
@@ -106,10 +103,10 @@ export function Hero() {
 
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <Link
-                href={cta.href}
+                href="https://www.niddo.ai/niddia"
                 target={cta.external ? "_blank" : "_self"}
                 rel="noopener"
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-niddoEsmeralda rounded-md "
+                className="px-8 py-4 text-lg font-museo font-medium text-center text-white bg-niddoEsmeralda rounded-md "
               >
                 {cta.text}
               </Link>

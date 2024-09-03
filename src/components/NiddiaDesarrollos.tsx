@@ -33,7 +33,7 @@ export function NiddiaDesarrollos() {
   const links = [
     {
       label: "Niddo",
-      href: "http://localhost:3000/",
+      href: "https://www.niddo.ai/",
       icon: (
         <svg
         role="img"
@@ -52,7 +52,7 @@ export function NiddiaDesarrollos() {
     },
     {
       label: "Chat",
-      href: "http://localhost:3000/niddia",
+      href: "https://www.niddo.ai/niddia",
       icon: (
         <svg
           role="img"
@@ -70,7 +70,7 @@ export function NiddiaDesarrollos() {
     },
     {
       label: "Recorridos Virtuales",
-      href: "http://localhost:3000/niddiaDesarrollos",
+      href: "https://www.niddo.ai/niddiaDesarrollos",
       icon: (
         <svg
         role="img"
@@ -116,7 +116,7 @@ export function NiddiaDesarrollos() {
 export const Logo = () => {
   return (
     <Link
-      href="#"
+      href="https://www.niddo.ai/niddia"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       <Image
@@ -132,7 +132,7 @@ export const Logo = () => {
 export const LogoIcon = () => {
   return (
     <Link
-      href="#"
+      href="https://www.niddo.ai/niddia"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       <Image
