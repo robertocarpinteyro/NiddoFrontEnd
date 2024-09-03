@@ -88,7 +88,7 @@ export function Hero() {
         backgroundImage: `url("${bg.url}")`,
       }}
     >
-      <Container className="flex flex-wrap justify-center items-center px-11">
+      <Container className="flex flex-wrap justify-center items-center px-11 font-museo">
         <div className="flex items-center w-full lg:w-1/2">
           <div
             className="max-w-2xl mb-8 font-museo"
@@ -106,7 +106,7 @@ export function Hero() {
                 href="https://www.niddo.ai/niddia"
                 target={cta.external ? "_blank" : "_self"}
                 rel="noopener"
-                className="px-8 py-4 text-lg font-museo font-medium text-center text-white bg-niddoEsmeralda rounded-md "
+                className="px-8 py-4 text-lg font-medium text-center text-white bg-niddoEsmeralda rounded-md "
               >
                 {cta.text}
               </Link>

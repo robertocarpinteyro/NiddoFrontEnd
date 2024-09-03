@@ -32,11 +32,11 @@ export function Benefits() {
                 <div className="relative w-full px-5 mx-auto md:px-12 lg:px-16 max-w-7xl">
                   <div className="flex flex-col lg:flex-row items-center gap-10 justify-center">
                     <div className="max-w-xl text-center lg:text-left">
-                      <p className="text-3xl sm:text-2xl font-museo text-[#201515] leading-snug">
+                      <p className="text-3xl sm:text-2xl  text-[#201515] leading-snug">
                         Utilizo{" "}
                         <span className="font-bold">tecnología avanzada</span>
                       </p>
-                      <p className="text-xl sm:text-2xl font-museo text-[#201515] leading-snug">
+                      <p className="text-xl sm:text-2xl  text-[#201515] leading-snug">
                         y mi profundo conocimiento sobre el mercado inmobiliario
                         para ayudarte a encontrar la
                         <span className="font-bold"> propiedad perfecta.</span>

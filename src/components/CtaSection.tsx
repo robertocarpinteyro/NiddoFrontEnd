@@ -85,7 +85,7 @@ const ReviewCard = ({
   return (
     <figure
       className={cn(
-        "relative h-56 w-52 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-56 w-52 cursor-pointer overflow-hidden rounded-xl border p-4 font-museo",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
@@ -107,14 +107,12 @@ const ReviewCard = ({
 
 export function Ctasection() {
   return (
-    <div className="mx-auto my-10 w-screen max-w-screen-xl px-4">
+    <div className="mx-auto my-10 w-screen max-w-screen-xl px-4 font-museo">
       <div className="flex items-center rounded-xl bg-gradient-to-r from-niddoAmarillo to-niddoAmarillo px-8 text-black shadow-lg">
         <div className="my-10 lg:my-8 lg:w-1/2">
           <h1
             className="text-3xl font-bold"
-            style={{
-              fontFamily: "MuseoModerno",
-            }}
+            
           >
             ¿Por qué elegirnos?
           </h1>
