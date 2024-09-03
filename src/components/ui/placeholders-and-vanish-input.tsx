@@ -174,6 +174,7 @@ export function PlaceholdersAndVanishInput({
     vanishAndSubmit();
     onSubmit && onSubmit(e);
   };
+
   return (
     <form
       className={cn(
@@ -211,6 +212,12 @@ export function PlaceholdersAndVanishInput({
         type="submit"
         className="absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100 bg-black dark:bg-zinc-900 dark:disabled:bg-zinc-800 transition duration-200 flex items-center justify-center"
       >
+        <a
+          href="https://niddo.ai/niddia"
+          className="absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-transparent bg-transparent dark:bg-transparent dark:disabled:bg-transparent transition duration-200 flex items-center justify-center"
+        >
+
+        </a>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

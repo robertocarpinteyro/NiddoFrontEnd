@@ -157,7 +157,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <main className="container mx-auto py-4">
+    <main className="container mx-auto py-4 font-museo">
       <div className="flex flex-col space-y-8">
         {/* First Row */}
         <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 px-4 xl:p-0 gap-y-4 md:gap-6">

@@ -209,7 +209,7 @@ export function GridDisplay() {
                   src={desarrollo.logo.url}
                   className=" rounded-full border-2 object-fill"
                   width={40}
-                  height={40}
+                  height={35}
                   alt={
                     desarrollo.miniatura.alternativeText ||
                     desarrollo.miniatura.name
