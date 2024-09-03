@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import { Navbar } from "@/components/Navbar";
+
 import { Footer } from "@/components/Footer";
 import { PopupWidget }  from "@/components/PopupWidget";
 import { Hero } from "@/components/Hero";
