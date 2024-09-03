@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Testimonials } from "./Testimonials";
+import Testimonials from "./Testimonials";
 
 import Slider from "./Slider";
 import { Card, CardHeader, Image, CardBody } from "@nextui-org/react";
@@ -205,7 +205,7 @@ const Dashboard = () => {
               </div>
 
               <div className="h-full w-full">
-                
+                <Testimonials/>
               </div>
             </Slider>
           </div>

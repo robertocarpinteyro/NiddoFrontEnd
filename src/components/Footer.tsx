@@ -156,7 +156,7 @@ const Backlink = () => {
         className="rounded-xl"
       />
 
-      <span>Designed by Oasis Creattiva</span>
+      <span>Designed by Oasis Creativa</span>
     </a>
   );
 };

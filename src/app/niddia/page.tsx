@@ -4,7 +4,6 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Benefits } from "@/components/Benefits";
 import { ContentWithImage } from "@/components/ContentWithImage";
 import { Video } from "@/components/Video";
-import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 import { SidebarDemo } from "@/components/Niddia";
