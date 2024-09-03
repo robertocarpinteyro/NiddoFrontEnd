@@ -11,26 +11,70 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Testimonials } from "./Testimonials";
-import { Image } from "@nextui-org/react";
+
 import Slider from "./Slider";
+import { Card, CardHeader, Image, CardBody } from "@nextui-org/react";
 export function SidebarDemo() {
   const links = [
     {
       label: "Niddo",
       href: "http://localhost:3000/",
       icon: (
-        <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <svg
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 256 256"
+        width="24px"
+        height="24px"
+      >
+        <path
+          fill="#000000"
+          d="M224 115.55V208a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.45a16 16 0 0 1 5.17-11.78l80-75.48l.11-.11a16 16 0 0 1 21.53 0a1.14 1.14 0 0 0 .11.11l80 75.48a16 16 0 0 1 5.08 11.78"
+        />
+      </svg>
+      ),
+    },
+    {
+      label: "Chat",
+      href: "http://localhost:3000/niddia",
+      icon: (
+        <svg
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="24px"
+          height="24px"
+        >
+          <path
+            fill="#000000"
+            d="M160 368c26.5 0 48 21.5 48 48v16l72.5-54.4c8.3-6.2 18.4-9.6 28.8-9.6H448c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16v288c0 8.8 7.2 16 16 16zm48 124l-.2.2l-5.1 3.8l-17.1 12.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3v-80H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h384c35.3 0 64 28.7 64 64v288c0 35.3-28.7 64-64 64H309.3z"
+          />
+        </svg>
       ),
     },
     {
       label: "Recorridos Virtuales",
       href: "http://localhost:3000/niddiaDesarrollos",
       icon: (
-        <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <svg
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="24px"
+        height="24px"
+      >
+        <path
+          fill="#000000"
+          d="m15 17l-2-2h-2l-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2zm7-3a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0zM4 14a1 1 0 0 1-2 0v-4a1 1 0 1 1 2 0z"
+        />
+      </svg>
+      
       ),
     },
   ];
+
   const [open, setOpen] = useState(false);
+
   return (
     <div
       className={cn(
@@ -39,7 +83,7 @@ export function SidebarDemo() {
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10">
+        <SidebarBody className="justify-between gap-10 z-10">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
@@ -120,7 +164,7 @@ const Dashboard = () => {
           <div className="md:col-span-2 xl:col-span-3 bg-white p-6 rounded-2xl border border-gray-50">
             <div className="flex flex-col space-y-6 md:h-full md:justify-between">
               <iframe
-                className="h-full w-full rounded-lg  bg-gray-100 dark:bg-neutral-800"
+                className="h-full w-full rounded-lg bg-gray-100 dark:bg-neutral-800"
                 id="mindstudio-frame"
                 referrerPolicy="origin"
                 style={{
@@ -136,36 +180,32 @@ const Dashboard = () => {
               ></iframe>
             </div>
           </div>
-          <div className="col-span-2 p-6 rounded-2xl bg-gray-50 flex flex-col justify-between ">
+          <div className="col-span-2 p-6 rounded-2xl bg-gray-50 flex flex-col justify-between h-full">
             <Slider>
-              <div className="min-w-full ">
-                <Testimonials />
-              </div>
-              {/* Agrega más componentes dentro del slider aquí */}
-              <div className="min-w-full h-full">
-                <div className="h-full w-full">
-                  <div
-                    className={cn(
-                      "h-full w-full p-6 rounded-2xl bg-gray-50 flex flex-col justify-between",
-                      "group cursor-pointer overflow-hidden relative rounded-md shadow-xl border border-transparent dark:border-neutral-800",
-                      "bg-[url(https://images.unsplash.com/photo-1476842634003-7dcca8f832de?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)] bg-cover",
-                      "before:bg-[url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWlodTF3MjJ3NnJiY3Rlc2J0ZmE0c28yeWoxc3gxY2VtZzA5ejF1NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syEfLvksYQnmM/giphy.gif)] before:fixed before:inset-0 before:opacity-0 before:z-[-1]",
-                      "hover:bg-[url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWlodTF3MjJ3NnJiY3Rlc2J0ZmE0c28yeWoxc3gxY2VtZzA5ejF1NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syEfLvksYQnmM/giphy.gif)]",
-                      "hover:after:content-[''] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-50",
-                      "transition-all duration-500"
-                    )}
+              {/* Image with hover effect */}
+              <div className="relative h-full w-full group">
+                <img
+                  src="/img/Niddia_Terraza2.jpg"
+                  alt="Your Image"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 flex items-end justify-start p-6">
+                  <p
+                    className="text-white text-lg"
+                    style={{
+                      fontFamily: "MuseoModerno",
+                    }}
                   >
-                    <div className="text relative z-50">
-                      <h1 className="font-bold text-xl md:text-3xl text-gray-50 relative">
-                        Background Overlays
-                      </h1>
-                      <p className="font-normal text-base text-gray-50 relative my-4">
-                        This card is for some special elements, like displaying
-                        background gifs on hover only.
-                      </p>
-                    </div>
-                  </div>
+                    Utilizo tecnología avanzada y mi profundo conocimiento sobre
+                    el mercado inmobiliario para ayudarte a encontrar la
+                    propiedad perfecta.
+                  </p>
                 </div>
+              </div>
+
+              <div className="h-full w-full">
+                <Testimonials />
               </div>
             </Slider>
           </div>

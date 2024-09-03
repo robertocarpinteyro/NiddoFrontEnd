@@ -1,6 +1,7 @@
-"ise client"
+"use client";
 import { useEffect, useRef } from 'react';
 import React from 'react';
+
 interface SliderProps {
   children: React.ReactNode;
 }
@@ -22,16 +23,18 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
       }
     };
 
-    const interval = setInterval(moveSlide, 3000); // Mueve cada 3 segundos
+    const interval = setInterval(moveSlide, 8000); // Mueve cada 8 segundos
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [children]);
 
   return (
-    <div className="relative w-full overflow-hidden">
-      <div className="flex transition-transform duration-500 ease-in-out" ref={sliderRef}>
+    <div className="relative w-full h-full overflow-hidden">
+      <div className="flex transition-transform duration-500 ease-in-out h-full" ref={sliderRef}>
         {React.Children.map(children, (child) => (
-          <div className="min-w-full">{child}</div>
+          <div className="min-w-full h-full flex items-center justify-center">
+            {child}
+          </div>
         ))}
       </div>
     </div>

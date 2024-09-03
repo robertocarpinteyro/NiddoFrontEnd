@@ -182,6 +182,9 @@ export const SidebarLink = ({
           opacity: animate ? (open ? 1 : 0) : 1,
         }}
         className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+        style={{
+          fontFamily: "MuseoModerno",
+        }}
       >
         {link.label}
       </motion.span>

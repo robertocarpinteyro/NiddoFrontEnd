@@ -46,7 +46,7 @@ const placeholders = [
 ];
 const footerData = {
   logo: "/img/app-icon.png",
-  link: "",
+  link: "https://www.instagram.com/niddo.realestate/",
   text: "",
   text2: "",
   text3: "",
