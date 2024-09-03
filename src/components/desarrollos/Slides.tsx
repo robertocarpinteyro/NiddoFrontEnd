@@ -1,4 +1,4 @@
-import { Data } from "@/pages";
+import { Data } from "../NiddiaDesarrollos";
 import React from "react";
 import CardSlider from "./CardSlide";
 

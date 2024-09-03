@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Data } from "@/pages";
+import { Data } from "../NiddiaDesarrollos";
 
 type Props = {
   data: any;
