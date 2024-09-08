@@ -10,7 +10,7 @@ import { PopupWidget }  from "@/components/PopupWidget";
 import { Hero } from "@/components/Hero";
 import { AcercaDe } from "@/components/AcercaDe";
 import { Video } from "@/components/Video";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 const navItems = [
@@ -42,6 +42,7 @@ export default function RootLayout({
           <div>{children}</div>
          
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
