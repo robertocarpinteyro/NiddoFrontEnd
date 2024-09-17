@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <NextUIProvider>
       <Container>
-        <Hero />
+        <Hero data={heroData} />
         <Benefits />
       </Container>
       <MarqueeComponent />
@@ -42,22 +42,23 @@ const footerData = {
   text3: "",
 };
 const heroData = {
-  id: 1,
-  __component: "layout.hero",
-  heading: "Free Landing Page Template for startups",
-  text: "Nextly is a free landing page & marketing website template for startups and indie projects. Its built with Next.js & TailwindCSS. And its completely open-source.",
+ heading: "¿Sueñas con tu hogar perfecto?",
+  text: "Yo te ayudo a encontrarlo",
   cta: {
-    id: 7,
-    href: "https://github.com/PaulBratslavsky/next-strapi-template-starter-code",
+    href: "https://niddo.ai/niddia",
     text: "Starter Code",
     external: true,
   },
   image: {
-    id: 2,
     url: "/img/hero.png",
     alternativeText: "hero image",
     name: "hero.png",
   },
+  bg: {
+    url: "/img/bg-hero.png",
+    alternativeText: "background image",
+    name: "bg-hero.png",
+  }
 };
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

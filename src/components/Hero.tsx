@@ -60,22 +60,8 @@ interface HeroProps {
   };
 }
 
-export function Hero() {
-  const [data, setData] = useState<HeroProps["data"] | null>(null);
+export function Hero({ data }: { data: HeroProps["data"] }) {
   const [showVideo, setShowVideo] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await loader();
-      setData(response);
-    };
-
-    if (!data) {
-      fetchData();
-    }
-  }, [data]);
-
-  if (!data) return null;
 
   const { heading, text, cta, image, bg } = data;
 
