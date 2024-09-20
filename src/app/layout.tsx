@@ -13,8 +13,27 @@ import { Video } from "@/components/Video";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
+const heroData = {
+  heading: "¿Sueñas con tu hogar perfecto?",
+   text: "Yo te ayudo a encontrarlo",
+   cta: {
+     href: "https://niddo.ai/niddia",
+     text: "Plática con Niddia",
+     external: true,
+   },
+   image: {
+     url: "/img/niddiaHero.png",
+     alternativeText: "hero image",
+     name: "hero.png",
+   },
+   bg: {
+     url: "/img/bg.png",
+     alternativeText: "background image",
+     name: "bg-hero.png",
+   }
+ };
 const navItems = [
-  { name: "Inicio", link: "#inicio", icon: <Hero/> },
+  { name: "Inicio", link: "#inicio", icon: <Hero data={heroData} /> },
   { name: "Acerca de", link: "#acerca", icon: <AcercaDe /> },
   { name: "Desarrollos", link: "#desarrollos"},
 ];
