@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { Footer } from "@/components/Footer";
 import { PopupWidget }  from "@/components/PopupWidget";
 import { Hero } from "@/components/Hero";
-import { AcercaDe } from "@/components/AcercaDe";
+
 import { Video } from "@/components/Video";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -34,7 +34,7 @@ const heroData = {
  };
 const navItems = [
   { name: "Inicio", link: "#inicio", },
-  { name: "Acerca de", link: "#acerca", icon: <AcercaDe /> },
+  { name: "Acerca de", link: "#acerca", },
   { name: "Desarrollos", link: "#desarrollos"},
 ];
 const logo = {

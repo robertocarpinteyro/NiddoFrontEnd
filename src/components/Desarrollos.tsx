@@ -8,12 +8,10 @@ import {
   Image,
   Button,
 } from "@nextui-org/react";
-import qs from "qs";
-import { getStrapiURL } from "@/lib/utils";
-import { StrapiImage } from "./StrapiImage";
+
 import { cn } from "@/lib/utils";
 
-async function loader() {
+/*async function loader() {
   const { fetchData } = await import("@/lib/fetch");
   const path = "/api/desarrollos";
   const baseUrl = getStrapiURL();
@@ -39,7 +37,7 @@ async function loader() {
   const data = await fetchData(url.href);
   console.log("Data received from API:", data);
   return data.data;
-}
+}*/
 
 interface GridData {
   id: number;

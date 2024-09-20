@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import { PlayCircleIcon } from "@heroicons/react/20/solid";
 
-async function loader() {
+/*async function loader() {
   const { fetchData } = await import("@/lib/fetch");
 
   const path = "/api/sections/3";
@@ -36,7 +36,7 @@ async function loader() {
   url.search = query;
   const data = await fetchData(url.href);
   return data;
-}
+}*/
 
 interface HeroProps {
   data: {
