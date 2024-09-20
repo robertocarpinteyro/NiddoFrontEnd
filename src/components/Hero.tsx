@@ -75,7 +75,7 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
       }}
     >
       <Container className="flex flex-wrap justify-center items-center px-11 font-museo">
-        <div className="flex items-center w-full lg:w-1/2">
+        <div className="flex items-center w-full lg:w-1/2 lg:pl-20">
           <div
             className="max-w-2xl mb-8 font-museo"
         
@@ -105,10 +105,10 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
 
         <div className="flex items-center justify-center w-full lg:w-1/2">
           <div className="relative">
-            <StrapiImage
+            <Image
               src={image.url}
-              width={616}
-              height={617}
+              width={600}
+              height={600}
               alt={image.alternativeText || "Hero Image"}
             />
 

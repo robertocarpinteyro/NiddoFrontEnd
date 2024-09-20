@@ -46,16 +46,16 @@ const heroData = {
   text: "Yo te ayudo a encontrarlo",
   cta: {
     href: "https://niddo.ai/niddia",
-    text: "Starter Code",
+    text: "Plática con Niddia",
     external: true,
   },
   image: {
-    url: "/img/hero.png",
+    url: "/img/niddiaHero.png",
     alternativeText: "hero image",
     name: "hero.png",
   },
   bg: {
-    url: "/img/bg-hero.png",
+    url: "/img/bg.png",
     alternativeText: "background image",
     name: "bg-hero.png",
   }
