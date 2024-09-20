@@ -33,7 +33,7 @@ const heroData = {
    }
  };
 const navItems = [
-  { name: "Inicio", link: "#inicio", icon: <Hero data={heroData} /> },
+  { name: "Inicio", link: "#inicio", },
   { name: "Acerca de", link: "#acerca", icon: <AcercaDe /> },
   { name: "Desarrollos", link: "#desarrollos"},
 ];
