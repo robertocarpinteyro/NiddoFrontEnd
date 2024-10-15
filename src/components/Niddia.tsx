@@ -135,8 +135,8 @@ export const LogoIcon = () => {
 const Dashboard = () => {
   useEffect(() => {
     (window as any).MindStudioSettings = {
-      publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
-      appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
+       publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
+    appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
       targetId: "mindstudio-frame",
       debugging: true,
       options: {
