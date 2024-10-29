@@ -21,17 +21,17 @@ export function SidebarDemo() {
       href: "https://www.niddo.ai/",
       icon: (
         <svg
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 256 256"
-        width="24px"
-        height="24px"
-      >
-        <path
-          fill="#000000"
-          d="M224 115.55V208a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.45a16 16 0 0 1 5.17-11.78l80-75.48l.11-.11a16 16 0 0 1 21.53 0a1.14 1.14 0 0 0 .11.11l80 75.48a16 16 0 0 1 5.08 11.78"
-        />
-      </svg>
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 256 256"
+          width="24px"
+          height="24px"
+        >
+          <path
+            fill="#000000"
+            d="M224 115.55V208a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.45a16 16 0 0 1 5.17-11.78l80-75.48l.11-.11a16 16 0 0 1 21.53 0a1.14 1.14 0 0 0 .11.11l80 75.48a16 16 0 0 1 5.08 11.78"
+          />
+        </svg>
       ),
     },
     {
@@ -57,18 +57,17 @@ export function SidebarDemo() {
       href: "https://www.niddo.ai/niddiaDesarrollos",
       icon: (
         <svg
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="24px"
-        height="24px"
-      >
-        <path
-          fill="#000000"
-          d="m15 17l-2-2h-2l-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2zm7-3a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0zM4 14a1 1 0 0 1-2 0v-4a1 1 0 1 1 2 0z"
-        />
-      </svg>
-      
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24px"
+          height="24px"
+        >
+          <path
+            fill="#000000"
+            d="m15 17l-2-2h-2l-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2zm7-3a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0zM4 14a1 1 0 0 1-2 0v-4a1 1 0 1 1 2 0z"
+          />
+        </svg>
       ),
     },
   ];
@@ -135,8 +134,8 @@ export const LogoIcon = () => {
 const Dashboard = () => {
   useEffect(() => {
     (window as any).MindStudioSettings = {
-       publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
-    appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
+      publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
+      appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
       targetId: "mindstudio-frame",
       debugging: true,
       options: {
@@ -181,31 +180,77 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="col-span-2 p-6 rounded-2xl bg-gray-50 flex flex-col justify-between h-full font-museo">
+            
             <Slider>
+              
               {/* Image with hover effect */}
               <div className="relative h-full w-full group">
+                
                 <img
                   src="/img/Niddia_Terraza2.jpg"
                   alt="Your Image"
                   className="absolute inset-0 h-full w-full object-cover rounded-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-2xl"></div>
-                <div className="absolute inset-0 flex items-end justify-start p-6">
-                  <p
-                    className="text-white text-lg font-museo"
-                  
-                  >
-                    Utilizo tecnología avanzada y mi profundo conocimiento sobre
-                    el mercado inmobiliario para ayudarte a encontrar la
-                    propiedad perfecta.
-                  </p>
-                </div>
+
+                
+              </div>
+              <div className="relative h-full w-full group">
+                <img
+                  src="/img/niddia/Niddia_8.png"
+                  alt="BosqueReal"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
               </div>
 
-              <div className="h-full w-full">
-                <ThreeColTestimonials/>
+              <div className="relative h-full w-full group">
+                <img
+                  src="/img/niddia/Niddia_1.jpg"
+                  alt="Niddia_BosqueReal"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
+              </div>
+
+              <div className="relative h-full w-full group">
+                <img
+                  src="/img/niddia/Niddia_2.jpg"
+                  alt="Niddia_Blue"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
+              </div>
+
+              <div className="relative h-full w-full group">
+                <img
+                  src="/img/niddia/Niddia_7.png"
+                  alt="BosqueReal"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
+              </div>
+
+              <div className="relative h-full w-full group">
+                <img
+                  src="/img/niddia/Niddia_3.jpg"
+                  alt="Niddia_Ivy"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
+              </div>
+
+              <div className="relative h-full w-full group">
+                <img
+                  src="/img/niddia/Niddia_4.jpg"
+                  alt="Niddia_Ivy"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
+              </div>
+
+              <div className="relative h-full w-full group">
+                <img
+                  src="/img/niddia/Niddia_5.jpg"
+                  alt="Niddia_Ivy"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
               </div>
             </Slider>
+            
           </div>
         </div>
         {/* Second Row */}
