@@ -36,18 +36,17 @@ export function NiddiaDesarrollos() {
       href: "https://www.niddo.ai/",
       icon: (
         <svg
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 256 256"
-        width="24px"
-        height="24px"
-      >
-        <path
-          fill="#000000"
-          d="M224 115.55V208a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.45a16 16 0 0 1 5.17-11.78l80-75.48l.11-.11a16 16 0 0 1 21.53 0a1.14 1.14 0 0 0 .11.11l80 75.48a16 16 0 0 1 5.08 11.78"
-        />
-      </svg>
-      
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 256 256"
+          width="24px"
+          height="24px"
+        >
+          <path
+            fill="#000000"
+            d="M224 115.55V208a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.45a16 16 0 0 1 5.17-11.78l80-75.48l.11-.11a16 16 0 0 1 21.53 0a1.14 1.14 0 0 0 .11.11l80 75.48a16 16 0 0 1 5.08 11.78"
+          />
+        </svg>
       ),
     },
     {
@@ -73,18 +72,17 @@ export function NiddiaDesarrollos() {
       href: "https://www.niddo.ai/niddiaDesarrollos",
       icon: (
         <svg
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="24px"
-        height="24px"
-      >
-        <path
-          fill="#000000"
-          d="m15 17l-2-2h-2l-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2zm7-3a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0zM4 14a1 1 0 0 1-2 0v-4a1 1 0 1 1 2 0z"
-        />
-      </svg>
-      
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24px"
+          height="24px"
+        >
+          <path
+            fill="#000000"
+            d="m15 17l-2-2h-2l-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2zm7-3a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0zM4 14a1 1 0 0 1-2 0v-4a1 1 0 1 1 2 0z"
+          />
+        </svg>
       ),
     },
   ];
@@ -148,6 +146,7 @@ export const LogoIcon = () => {
 // Dummy dashboard component with content
 const Dashboard = () => {
   useEffect(() => {
+    // Definir las configuraciones iniciales
     (window as any).MindStudioSettings = {
       publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
       appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
@@ -160,13 +159,28 @@ const Dashboard = () => {
       },
     };
 
+    // Crear e insertar el script
     const script = document.createElement("script");
     script.src = "https://api.mindstudio.ai/v1/embed.js";
     script.async = true;
     document.body.appendChild(script);
 
+    // Forzar la recarga después de un pequeño retraso
+    const retryLoadScript = setTimeout(() => {
+      // Eliminar el script actual
+      document.body.removeChild(script);
+
+      // Crear un nuevo script e insertar nuevamente
+      const newScript = document.createElement("script");
+      newScript.src = "https://api.mindstudio.ai/v1/embed.js";
+      newScript.async = true;
+      document.body.appendChild(newScript);
+    }, 200); // Retraso de 200ms para asegurar la carga completa
+
+    // Limpiar ambos scripts cuando el componente se desmonte
     return () => {
       document.body.removeChild(script);
+      clearTimeout(retryLoadScript);
     };
   }, []);
   const [data, setData] = React.useState<Data[]>(sliderData.slice(1));
@@ -190,7 +204,6 @@ const Dashboard = () => {
           currentSlideData={currentSlideData}
         />
         <div className="  absolute z-20  h-full w-full">
-          
           <div className=" flex h-full w-full grid-cols-10 flex-col md:grid">
             <div className=" col-span-4 mb-3 flex h-full flex-1 flex-col justify-end px-5 md:mb-0 md:justify-center md:px-10 font-museo">
               <SlideInfo
@@ -219,27 +232,39 @@ const Dashboard = () => {
 };
 
 const sliderData = [
+<<<<<<< HEAD
+=======
 
  
+>>>>>>> 0eddbc1504a5ee1146b766d9ce34c880c12f15ae
   {
     img: "/img/skyview.jpg",
     title: "SkyView",
-    description:
-      "https://sky-kappa-one.vercel.app",
+    description: "https://sky-kappa-one.vercel.app",
     location: "Bosque Real",
   },
   {
     img: "/img/ivy.jpg",
     title: "Ivy",
-    description:
-      "https://niddoivy-niddo-team.vercel.app/",
+    description: "https://niddoivy-niddo-team.vercel.app/",
     location: "Bosque Real",
   },
   {
     img: "/img/blue.jpg",
     title: "Blue",
-    description:
-      "https://blue-brown-six.vercel.app/",
+    description: "https://blue-brown-six.vercel.app/",
+    location: "Bosque Real",
+  },
+  {
+    img: "/img/nox.jpg",
+    title: "Nox",
+    description: "https://storage.net-fs.com/hosting/7171698/34/",
+    location: "Bosque Real",
+  },
+  {
+    img: "/img/nativ.jpg",
+    title: "Nativ",
+    description: "https://jxnglobal.com/vr/gbr/propiedades/nativ_765a5b52/",
     location: "Bosque Real",
   },
 ];
