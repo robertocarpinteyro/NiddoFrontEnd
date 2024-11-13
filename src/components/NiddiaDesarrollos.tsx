@@ -220,13 +220,7 @@ const Dashboard = () => {
 
 const sliderData = [
 
-  {
-    img: "/img/casaAmbar.jpg",
-    title: "Casa Ambar",
-    description:
-      "",
-    location: "Bosque Real",
-  },
+ 
   {
     img: "/img/skyview.jpg",
     title: "SkyView",
