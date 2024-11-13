@@ -242,20 +242,6 @@ const sliderData = [
       "https://blue-brown-six.vercel.app/",
     location: "Bosque Real",
   },
-    {
-    img: "",
-    title: "Nox",
-    description:
-      "https://storage.net-fs.com/hosting/7171698/34/",
-    location: "Bosque Real",
-  },
-     {
-    img: "",
-    title: "Nativ",
-    description:
-      "https://jxnglobal.com/vr/gbr/propiedades/nativ_765a5b52/",
-    location: "Bosque Real",
-  },
 ];
 
 const initData = sliderData[0];
