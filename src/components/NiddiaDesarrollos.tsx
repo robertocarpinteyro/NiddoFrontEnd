@@ -146,7 +146,6 @@ export const LogoIcon = () => {
 // Dummy dashboard component with content
 const Dashboard = () => {
   useEffect(() => {
-    // Definir las configuraciones iniciales
     (window as any).MindStudioSettings = {
       publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
       appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
@@ -159,28 +158,13 @@ const Dashboard = () => {
       },
     };
 
-    // Crear e insertar el script
     const script = document.createElement("script");
     script.src = "https://api.mindstudio.ai/v1/embed.js";
     script.async = true;
     document.body.appendChild(script);
 
-    // Forzar la recarga después de un pequeño retraso
-    const retryLoadScript = setTimeout(() => {
-      // Eliminar el script actual
-      document.body.removeChild(script);
-
-      // Crear un nuevo script e insertar nuevamente
-      const newScript = document.createElement("script");
-      newScript.src = "https://api.mindstudio.ai/v1/embed.js";
-      newScript.async = true;
-      document.body.appendChild(newScript);
-    }, 200); // Retraso de 200ms para asegurar la carga completa
-
-    // Limpiar ambos scripts cuando el componente se desmonte
     return () => {
       document.body.removeChild(script);
-      clearTimeout(retryLoadScript);
     };
   }, []);
   const [data, setData] = React.useState<Data[]>(sliderData.slice(1));
@@ -192,7 +176,6 @@ const Dashboard = () => {
       data: initData,
       index: 0,
     });
-
   return (
     <main
       className={`
