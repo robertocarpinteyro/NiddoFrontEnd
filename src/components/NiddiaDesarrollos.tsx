@@ -240,10 +240,6 @@ const Dashboard = () => {
 };
 
 const sliderData = [
-<<<<<<< HEAD
-=======
-
->>>>>>> 8c51e46c69e8d87044db317e1b6739175d03994d
   {
     img: "/img/skyview.jpg",
     title: "SkyView",
