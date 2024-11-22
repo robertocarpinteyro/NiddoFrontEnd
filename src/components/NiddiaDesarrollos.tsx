@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar";
+import { useRouter } from "next/router"; // Para leer la query string
+import { MindStudio } from "mindstudio"; // Importamos la librería oficial
 import {
   IconArrowLeft,
   IconBrandTabler,
@@ -30,6 +32,10 @@ export type CurrentSlideData = {
 };
 
 export function NiddiaDesarrollos() {
+  const [option, setOption] = useState<string | null>(null); // Opción seleccionada
+  const router = useRouter();
+  console.log("opcion", option);
+
   const links = [
     {
       label: "Niddo",
@@ -156,6 +162,9 @@ const Dashboard = () => {
         autoFocus: true,
         disableThreads: false,
         minimizeThreadPanel: true,
+        launchVariables: {
+          option: "Casas"
+        }
       },
     };
 

@@ -65,6 +65,8 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
 
   const { heading, text, cta, image, bg } = data;
 
+  const categories = ["casas", "departamentos", "lotes", "oficinas"];
+
   return (
     <div id="inicio"
       className="bg-cover bg-center w-full flex items-center pt-40"
@@ -86,8 +88,30 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
             <p className="py-5 text-xl leading-normal text-black lg:text-xl xl:text-2xl">
               {text}
             </p>
+             {/* Botones dinámicos */}
+             <div className="flex flex-col space-y-4">
+              {categories.map((category) => (
+                <Link
+                  key={category}
+                  href={{
+                    pathname: "/niddia",
+                    query: { option: category }, // Agrega la opción como query string
+                  }}
+                  className="px-8 py-4 text-lg font-medium text-center text-white bg-niddoEsmeralda rounded-md"
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </Link>
+              ))}
+            </div>
 
-            <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+            <button onClick={() => setShowVideo(true)} className="mt-5 h-12 w-12">
+              <PlayCircleIcon />
+            </button>
+          </div>
+        </div>
+
+            {/*
+           <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <Link
                 href="https://www.niddo.ai/niddia"
                 target={cta.external ? "_blank" : "_self"}
@@ -102,6 +126,7 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
             </div>
           </div>
         </div>
+        */}
 
         <div className="flex items-center justify-center w-full lg:w-1/2">
           <div className="relative">
