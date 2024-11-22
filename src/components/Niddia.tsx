@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar";
+import { useRouter } from "next/router"; 
 import {
   IconArrowLeft,
   IconBrandTabler,
@@ -132,28 +133,44 @@ export const LogoIcon = () => {
 
 // Dummy dashboard component with content
 const Dashboard = () => {
+
   useEffect(() => {
-    (window as any).MindStudioSettings = {
-      publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
-      appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
-      targetId: "mindstudio-frame",
-      debugging: true,
-      options: {
-        autoFocus: true,
-        disableThreads: false,
-        minimizeThreadPanel: true,
-      },
-    };
+    if (typeof window !== "undefined") {
+      // Capturar query string desde el cliente
+      const urlParams = new URLSearchParams(window.location.search);
+      const selectedOption = urlParams.get("option") || "niddia"; // Valor predeterminado
 
-    const script = document.createElement("script");
-    script.src = "https://api.mindstudio.ai/v1/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
+      console.log("optionVariable", selectedOption);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+      // Configurar MindStudioSettings con el valor capturado
+      (window as any).MindStudioSettings = {
+        publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
+        appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
+        targetId: "mindstudio-frame",
+        debugging: true,
+        options: {
+          autoFocus: true,
+          disableThreads: false,
+          minimizeThreadPanel: true,
+          launchVariables: {
+            option: selectedOption, // Pasa el valor de la query string
+          },
+        },
+      };
+
+      // Insertar el script del embeding
+      const script = document.createElement("script");
+      script.src = "https://api.mindstudio.ai/v1/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+
+      // Limpieza del script al desmontar el componente
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, []); // No necesita dependencia, ya que `window.location` es global
+
 
   return (
     <main className="container mx-auto py-4 font-museo">
