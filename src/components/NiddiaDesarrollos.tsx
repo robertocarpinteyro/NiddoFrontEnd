@@ -174,23 +174,7 @@ const Dashboard = () => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Forzar la recarga después de un pequeño retraso
-    const retryLoadScript = setTimeout(() => {
-      // Eliminar el script actual
-      document.body.removeChild(script);
-
-      // Crear un nuevo script e insertar nuevamente
-      const newScript = document.createElement("script");
-      newScript.src = "https://api.mindstudio.ai/v1/embed.js";
-      newScript.async = true;
-      document.body.appendChild(newScript);
-    }, 200); // Retraso de 200ms para asegurar la carga completa
-
-    // Limpiar ambos scripts cuando el componente se desmonte
-    return () => {
-      document.body.removeChild(script);
-      clearTimeout(retryLoadScript);
-    };
+ 
   }, []);
   const [data, setData] = React.useState<Data[]>(sliderData.slice(1));
   const [transitionData, setTransitionData] = React.useState<Data>(
