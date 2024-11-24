@@ -68,7 +68,8 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
   const categories = ["casas", "departamentos", "lotes", "oficinas"];
 
   return (
-    <div id="inicio"
+    <div
+      id="inicio"
       className="bg-cover bg-center w-full flex items-center pt-40"
       style={{
         borderBottomLeftRadius: "50px",
@@ -78,18 +79,15 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
     >
       <Container className="flex flex-wrap justify-center items-center px-11 font-museo">
         <div className="flex items-center w-full lg:w-1/2 lg:pl-20">
-          <div
-            className="max-w-2xl mb-8 font-museo"
-        
-          >
+          <div className="max-w-2xl mb-8 font-museo">
             <h1>
               <TextGenerateEffect duration={5} filter={false} words={heading} />
             </h1>
             <p className="py-5 text-xl leading-normal text-black lg:text-xl xl:text-2xl">
               {text}
             </p>
-             {/* Botones dinámicos */}
-             <div className="flex flex-col space-y-4">
+            {/* Botones dinámicos */}
+            <div className="flex flex-row space-x-4 mt-4">
               {categories.map((category) => (
                 <Link
                   key={category}
@@ -97,20 +95,23 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
                     pathname: "/niddia",
                     query: { option: category }, // Agrega la opción como query string
                   }}
-                  className="px-8 py-4 text-lg font-medium text-center text-white bg-niddoEsmeralda rounded-md"
+                  className="px-4 py-2 text-sm font-medium text-center text-white bg-niddoEsmeralda rounded-md"
                 >
                   {category.charAt(0).toUpperCase() + category.slice(1)}
                 </Link>
               ))}
-            </div>
-
-            <button onClick={() => setShowVideo(true)} className="mt-5 h-12 w-12">
+              <button
+              onClick={() => setShowVideo(true)}
+              className="mt-0 h-5 w-10"
+            >
               <PlayCircleIcon />
             </button>
+            </div>
+            
           </div>
         </div>
 
-            {/*
+        {/*
            <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <Link
                 href="https://www.niddo.ai/niddia"
@@ -162,7 +163,6 @@ export function Hero({ data }: { data: HeroProps["data"] }) {
             <div className="container m-auto">
               <div className="w-full z-0 relative md:min-h-[41rem]">
                 <div className="w-full h-full relative z-0 rounded-2xl">
-                
                   <video
                     className="relative z-[1] inline w-full h-full object-center object-cover rounded-2xl"
                     preload="metadata"

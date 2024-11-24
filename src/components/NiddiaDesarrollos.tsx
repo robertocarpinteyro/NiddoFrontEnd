@@ -189,6 +189,7 @@ const Dashboard = () => {
       className={`
       relative flex-1 h-full min-h-screen select-none overflow-auto text-white antialiased font-museo`}
     >
+      
       <AnimatePresence>
         <BackgroundImage
           transitionData={transitionData}
