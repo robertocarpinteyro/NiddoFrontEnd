@@ -133,9 +133,19 @@ export const LogoIcon = () => {
 
 // Dummy dashboard component with content
 const Dashboard = () => {
-
   useEffect(() => {
     if (typeof window !== "undefined") {
+      // Limpiar cookies relacionadas
+      document.cookie.split(";").forEach((cookie) => {
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+      });
+
+      // Limpieza de localStorage y sessionStorage
+      localStorage.clear();
+      sessionStorage.clear();
+
       // Capturar query string desde el cliente
       const urlParams = new URLSearchParams(window.location.search);
       const selectedOption = urlParams.get("option") || "niddia"; // Valor predeterminado
@@ -150,7 +160,7 @@ const Dashboard = () => {
         debugging: true,
         options: {
           autoFocus: true,
-          disableThreads: true,
+          disableThreads: false,
           minimizeThreadPanel: true,
           launchVariables: {
             option: selectedOption, // Pasa el valor de la query string
@@ -170,6 +180,9 @@ const Dashboard = () => {
       };
     }
   }, []); // No necesita dependencia, ya que `window.location` es global
+
+
+
 
 
   return (
