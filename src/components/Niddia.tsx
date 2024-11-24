@@ -150,7 +150,7 @@ const Dashboard = () => {
         debugging: true,
         options: {
           autoFocus: true,
-          disableThreads: false,
+          disableThreads: true,
           minimizeThreadPanel: true,
           launchVariables: {
             option: selectedOption, // Pasa el valor de la query string
@@ -161,7 +161,7 @@ const Dashboard = () => {
       // Insertar el script del embeding
       const script = document.createElement("script");
       script.src = "https://api.mindstudio.ai/v1/embed.js";
-      script.async = true;
+      script.async = false;
       document.body.appendChild(script);
 
       // Limpieza del script al desmontar el componente
