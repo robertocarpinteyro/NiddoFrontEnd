@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import FloatingDockDesktop from "./FloatingDockDesktop";
 import FloatingDockMobile from "./FloatingDockMobile";
 import { CurrentSlideData, Data } from "../Niddia";
@@ -30,9 +30,11 @@ const FloatingDockAdapted = ({
   handleCurrentSlideData,
   handleTransitionData,
 }: Props) => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [lastOption, setLastOption] = useState<string | null>(null);
 
+  // Sincroniza el estado con la query string
   useEffect(() => {
     const option = searchParams.get("option");
     if (option && option !== lastOption) {
@@ -44,6 +46,7 @@ const FloatingDockAdapted = ({
     }
   }, [searchParams, lastOption]);
 
+  // Actualiza el slide según la opción seleccionada
   const updateSlide = (index: number, value: string) => {
     handleCurrentSlideData({
       data: sliderData[index],
@@ -52,9 +55,12 @@ const FloatingDockAdapted = ({
     handleTransitionData(sliderData[index]);
   };
 
+  // Maneja el cambio de pestaña
   const handleTabClick = (index: number, value: string) => {
     if (value !== lastOption) {
-      window.location.href = `/niddia?option=${value}`; // Redirige solo si es necesario
+      setLastOption(value); // Actualiza el estado local
+      router.push(`/niddia?option=${value}`); // Cambia la URL
+      router.refresh(); // Fuerza la recarga de la página
     }
   };
 
