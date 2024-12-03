@@ -32,6 +32,31 @@ const FloatingDockAdapted = ({
 }: Props) => {
   const searchParams = useSearchParams();
   const [lastOption, setLastOption] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(true); // Controla si el dock está visible
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY; // Obtiene la posición actual del scroll
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+
+      // Calcula si el scroll está a la mitad de la página
+      const scrollFraction = scrollPosition / (documentHeight - windowHeight);
+
+      // Oculta el dock cuando el scroll está a la mitad de la página
+      if (scrollFraction >= 0.5) {
+        setIsVisible(false); // Ocultar
+      } else {
+        setIsVisible(true); // Mostrar
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const option = searchParams.get("option");
@@ -59,7 +84,11 @@ const FloatingDockAdapted = ({
   };
 
   return (
-    <div className="relative flex justify-center items-center h-[35rem] w-full">
+    <div
+      className={`relative flex justify-center items-center h-[35rem] w-full transition-opacity duration-500 ${
+        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
       <FloatingDockDesktop
         items={tabItems.map((item, index) => ({
           ...item,
