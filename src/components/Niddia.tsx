@@ -21,6 +21,7 @@ export type CurrentSlideData = {
 
 export function Niddia() {
   useEffect(() => {
+    
     if (typeof window !== "undefined") {
       // Limpiar cookies relacionadas
       document.cookie.split(";").forEach((cookie) => {

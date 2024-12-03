@@ -17,10 +17,10 @@ type Props = {
 };
 
 const tabItems = [
-  { name: "Casas", icon: "/icons/casas.svg", value: "casas" },
-  { name: "Departamentos", icon: "/icons/departamentos.svg", value: "departamentos" },
-  { name: "Oficinas", icon: "/icons/oficinas.svg", value: "oficinas" },
-  { name: "Lotes", icon: "/icons/lotes.svg", value: "lotes" },
+  { name: "Casas", icon: "img/icons/casas.svg", value: "casas" },
+  { name: "Departamentos", icon: "img/icons/departamentos.svg", value: "departamentos" },
+  { name: "Oficinas", icon: "img/icons/oficinas.svg", value: "oficinas" },
+  { name: "Lotes", icon: "img/icons/lotes.svg", value: "lotes" },
 ];
 
 const FloatingDockAdapted = ({
