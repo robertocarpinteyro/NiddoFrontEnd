@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import BgStatus from "./desarrollos/BgStatus";
 import FloatingDockAdapted from "./desarrollos/NiddiaControls";
@@ -149,14 +149,16 @@ export function Niddia() {
               </dl>
             </div>
           </div>
-          <FloatingDockAdapted
-            currentSlideData={currentSlideData}
-            data={data}
-            transitionData={transitionData}
-            handleTransitionData={setTransitionData}
-            handleCurrentSlideData={setCurrentSlideData}
-            sliderData={sliderData}
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <FloatingDockAdapted
+              currentSlideData={currentSlideData}
+              data={data}
+              transitionData={transitionData}
+              handleTransitionData={setTransitionData}
+              handleCurrentSlideData={setCurrentSlideData}
+              sliderData={sliderData}
+            />
+          </Suspense>
         </div>
       </AnimatePresence>
       <div className="bg-black flex justify-center items-center h-20 w-full">
