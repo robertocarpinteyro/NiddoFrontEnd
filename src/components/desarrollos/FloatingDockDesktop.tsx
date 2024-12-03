@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { CurrentSlideData } from "../NiddiaDesarrollos";
+import { CurrentSlideData } from "../Niddia";
 
 const FloatingDockDesktop = ({
   items,

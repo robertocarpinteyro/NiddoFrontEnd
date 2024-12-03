@@ -2,7 +2,7 @@
 import React from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { CurrentSlideData } from "../NiddiaDesarrollos";
+import { CurrentSlideData } from "../Niddia";
 
 const FloatingDockMobile = ({
   items,
