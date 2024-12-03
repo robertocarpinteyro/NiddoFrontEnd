@@ -146,35 +146,6 @@ export const LogoIcon = () => {
 };
 
 const Dashboard = () => {
-  useEffect(() => {
-    const selectedOption = "Casas";
-    // Definir las configuraciones iniciales
-    (window as any).MindStudioSettings = {
-      publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
-      appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
-      targetId: "mindstudio-frame",
-      debugging: true,
-      options: {
-        autoFocus: true,
-        disableThreads: false,
-        minimizeThreadPanel: true,
-        launchVariables: {
-          option: selectedOption,
-        }
-      },
-    };
-  
-    const script = document.createElement("script");
-    script.src = "https://api.mindstudio.ai/v1/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-  
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-
   const [data, setData] = React.useState<Data[]>(sliderData.slice(1));
   const [transitionData, setTransitionData] = React.useState<Data>(
     sliderData[0]

@@ -1,138 +1,25 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar";
-import { useRouter } from "next/router"; 
-import {
-  IconArrowLeft,
-  IconBrandTabler,
-  IconSettings,
-  IconUserBolt,
-} from "@tabler/icons-react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-import Testimonials from "./Testimonials";
-import ThreeColTestimonials from "./TestimonialCollection";
-import Slider from "./Slider";
-import { Card, CardHeader, Image, CardBody } from "@nextui-org/react";
-export function SidebarDemo() {
-  const links = [
-    {
-      label: "Niddo",
-      href: "https://www.niddo.ai/",
-      icon: (
-        <svg
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-          width="24px"
-          height="24px"
-        >
-          <path
-            fill="#000000"
-            d="M224 115.55V208a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.45a16 16 0 0 1 5.17-11.78l80-75.48l.11-.11a16 16 0 0 1 21.53 0a1.14 1.14 0 0 0 .11.11l80 75.48a16 16 0 0 1 5.08 11.78"
-          />
-        </svg>
-      ),
-    },
-    {
-      label: "Chat",
-      href: "https://www.niddo.ai/niddia",
-      icon: (
-        <svg
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          width="24px"
-          height="24px"
-        >
-          <path
-            fill="#000000"
-            d="M160 368c26.5 0 48 21.5 48 48v16l72.5-54.4c8.3-6.2 18.4-9.6 28.8-9.6H448c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16v288c0 8.8 7.2 16 16 16zm48 124l-.2.2l-5.1 3.8l-17.1 12.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3v-80H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h384c35.3 0 64 28.7 64 64v288c0 35.3-28.7 64-64 64H309.3z"
-          />
-        </svg>
-      ),
-    },
-    {
-      label: "Recorridos Virtuales",
-      href: "https://www.niddo.ai/niddiaDesarrollos",
-      icon: (
-        <svg
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="24px"
-          height="24px"
-        >
-          <path
-            fill="#000000"
-            d="m15 17l-2-2h-2l-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2zm7-3a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0zM4 14a1 1 0 0 1-2 0v-4a1 1 0 1 1 2 0z"
-          />
-        </svg>
-      ),
-    },
-  ];
-
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div
-      className={cn(
-        "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 max-w-7xl mx-auto border border-neutral-200 dark:border-neutral-700 overflow-visible",
-        "h-screen"
-      )}
-    >
-      <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10 z-10">
-          <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-            {open ? <Logo /> : <LogoIcon />}
-            <div className="mt-8 flex flex-col gap-2">
-              {links.map((link, idx) => (
-                <SidebarLink key={idx} link={link} />
-              ))}
-            </div>
-          </div>
-        </SidebarBody>
-      </Sidebar>
-      <Dashboard />
-    </div>
-  );
-}
-
-export const Logo = () => {
-  return (
-    <Link
-      href="https://www.niddo.ai/niddia"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <Image
-        src="/img/niddiaLogo.png"
-        width="auto"
-        height="auto"
-        alt="Niddia Impulsada por inteligencia aritifical"
-      />
-    </Link>
-  );
+import { AnimatePresence } from "framer-motion";
+import BgStatus from "./desarrollos/BgStatus";
+import FloatingDockAdapted from "./desarrollos/NiddiaControls";
+import Image from "next/image";
+export type Data = {
+  img: string;
+  title: string;
+  description: string;
+  entrega: string;
+  precioMinimo: string;
+  precioMaximo: string;
+  superficieMinima: string;
 };
 
-export const LogoIcon = () => {
-  return (
-    <Link
-      href="https://www.niddo.ai/niddia"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <Image
-        src="/img/app-icon.png"
-        width="auto"
-        height="auto"
-        alt="Niddia Impulsada por inteligencia aritifical"
-      />
-    </Link>
-  );
+export type CurrentSlideData = {
+  data: Data;
+  index: number;
 };
 
-// Dummy dashboard component with content
-const Dashboard = () => {
+export function Niddia() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       // Limpiar cookies relacionadas
@@ -181,111 +68,167 @@ const Dashboard = () => {
     }
   }, []); // No necesita dependencia, ya que `window.location` es global
 
-
-
-
+  const [data, setData] = React.useState<Data[]>(sliderData.slice(1));
+  const [transitionData, setTransitionData] = React.useState<Data>(
+    sliderData[0]
+  );
+  const [currentSlideData, setCurrentSlideData] =
+    React.useState<CurrentSlideData>({
+      data: initData,
+      index: 0,
+    });
 
   return (
-    <main className="container mx-auto py-4 font-museo">
-  
-      <div className="flex flex-col space-y-8">
-        {/* First Row */}
-        <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 px-4 xl:p-0 gap-y-4 md:gap-6">
-          <div className="md:col-span-2 xl:col-span-3 bg-white p-6 rounded-2xl border border-gray-50">
-            <div className="flex flex-col space-y-6 md:h-full md:justify-between">
-              <iframe
-                className="h-full w-full rounded-lg bg-gray-100 dark:bg-neutral-800"
-                id="mindstudio-frame"
-                referrerPolicy="origin"
-                style={{
-                  width: "100%",
-                  height: "85vh",
-                  border: "none",
-                  borderRadius: "8px",
-                  outline: "none",
-                  backgroundColor: "gray",
-                }}
-                title="Niddia"
-                frameBorder="0"
-              ></iframe>
+    <main className="relative flex-1 h-full min-h-screen select-none overflow-auto text-white antialiased font-museo">
+      <AnimatePresence>
+        <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+          <div className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center">
+            <BgStatus
+              transitionData={transitionData}
+              currentSlideData={currentSlideData}
+            />
+          </div>
+
+          <div
+            aria-hidden="true"
+            className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+          >
+            <div
+              style={{
+                clipPath:
+                  "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+              }}
+              className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#6dffd3] to-[#000000] opacity-50"
+            />
+          </div>
+          <div
+            aria-hidden="true"
+            className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+          >
+            <div
+              style={{
+                clipPath:
+                  "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+              }}
+              className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#000000] to-[#000000] opacity-20"
+            />
+          </div>
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl lg:mx-0">
+              <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+                {transitionData?.title}
+              </h2>
+              <p className="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
+                {transitionData?.description}
+              </p>
+            </div>
+            <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+              <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="flex flex-col-reverse gap-1">
+                  <dd className="text-4xl font-semibold tracking-tight text-white">
+                    {transitionData?.entrega}
+                  </dd>
+                  <dt className="text-base/7 text-gray-300">
+                    Tiempo de entrega
+                  </dt>
+                </div>
+                <div className="flex flex-col-reverse gap-1">
+                  <dd className="text-4xl font-semibold tracking-tight text-white">
+                    {transitionData?.precioMinimo} mxn
+                  </dd>
+                  <dt className="text-base/7 text-gray-300">
+                    {transitionData?.title} desde
+                  </dt>
+                </div>
+                <div className="flex flex-col-reverse gap-1">
+                  <dd className="text-4xl font-semibold tracking-tight text-white">
+                    {transitionData?.superficieMinima} m²
+                  </dd>
+                  <dt className="text-base/7 text-gray-300">Superficie</dt>
+                </div>
+              </dl>
             </div>
           </div>
-          <div className="col-span-2 p-6 rounded-2xl bg-gray-50 flex flex-col justify-between h-full font-museo">
-            
-            <Slider>
-              
-              {/* Image with hover effect */}
-              <div className="relative h-full w-full group">
-                
-                <img
-                  src="/img/Niddia_Terraza2.jpg"
-                  alt="Your Image"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-
-                
-              </div>
-              <div className="relative h-full w-full group">
-                <img
-                  src="/img/niddia/Niddia_8.png"
-                  alt="BosqueReal"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-              </div>
-
-              <div className="relative h-full w-full group">
-                <img
-                  src="/img/niddia/Niddia_1.jpg"
-                  alt="Niddia_BosqueReal"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-              </div>
-
-              <div className="relative h-full w-full group">
-                <img
-                  src="/img/niddia/Niddia_2.jpg"
-                  alt="Niddia_Blue"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-              </div>
-
-              <div className="relative h-full w-full group">
-                <img
-                  src="/img/niddia/Niddia_7.png"
-                  alt="BosqueReal"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-              </div>
-
-              <div className="relative h-full w-full group">
-                <img
-                  src="/img/niddia/Niddia_3.jpg"
-                  alt="Niddia_Ivy"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-              </div>
-
-              <div className="relative h-full w-full group">
-                <img
-                  src="/img/niddia/Niddia_4.jpg"
-                  alt="Niddia_Ivy"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-              </div>
-
-              <div className="relative h-full w-full group">
-                <img
-                  src="/img/niddia/Niddia_5.jpg"
-                  alt="Niddia_Ivy"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-              </div>
-            </Slider>
-            
-          </div>
+          <FloatingDockAdapted
+            currentSlideData={currentSlideData}
+            data={data}
+            transitionData={transitionData}
+            handleTransitionData={setTransitionData}
+            handleCurrentSlideData={setCurrentSlideData}
+            sliderData={sliderData}
+          />
         </div>
-        {/* Second Row */}
+      </AnimatePresence>
+      <div className="bg-black flex justify-center items-center h-20 w-full">
+        <Image
+          src="/img/niddiaLogo.png"
+          alt="Separador"
+          width={64} // Ajusta el ancho de la imagen
+          height={64} // Ajusta la altura de la imagen
+          className="filter invert contrast-200 brightness-200"
+        />
       </div>
+
+      <iframe
+        className="h-full w-full rounded-lg bg-gray-100 dark:bg-neutral-800"
+        id="mindstudio-frame"
+        referrerPolicy="origin"
+        style={{
+          width: "100%",
+          height: "85vh",
+          border: "none",
+          borderRadius: "8px",
+          outline: "none",
+          backgroundColor: "gray",
+        }}
+        title="Niddia"
+        frameBorder="0"
+      ></iframe>
     </main>
   );
-};
+}
+
+const sliderData = [
+  {
+    img: "/img/casaAmbar.jpg",
+    title: "Casas",
+    description:
+      "En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños en los lotes residenciales de Bosque Real. Diseña tu hogar a medida, con un estilo único y adaptado a tus necesidades. ",
+    entrega: "Bosque Real",
+    precioMinimo: "500",
+    precioMaximo: "800",
+    superficieMinima: "900",
+  },
+  {
+    img: "/img/SkyView.jpg",
+    title: "Departamentos",
+    description:
+      "Descubre los departamentos en Bosque Real, donde la modernidad y la naturaleza se fusionan. Con opciones amplias y acogedoras, encontrarás espacios diseñados para tu comodidad y estilo de vida.",
+    entrega: "12 meses",
+    precioMinimo: "$7,980,000",
+    precioMaximo: "800",
+    superficieMinima: "114.65",
+  },
+  {
+    img: "/img/torreDesigno.jpg",
+    title: "Oficinas",
+    description:
+      "Descubre nuestras oficinas en Bosque Real, un espacio ideal para el crecimiento de tu empresa. Este desarrollo moderno ofrece oficinas con diseño contemporáneo, amplias áreas de trabajo y vistas inigualables, todo en un entorno seguro y rodeado de áreas verdes.",
+    entrega: "12 meses",
+    precioMinimo: "$5,178,218.34",
+    precioMaximo: "800",
+    superficieMinima: "52.946",
+  },
+  {
+    img: "/img/Reserva.jpeg",
+    title: "Lotes",
+    description:
+      "Cada lote está diseñado con una urbanización de alta calidad y sistemas de seguridad avanzados. En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños en los exclusivos lotes residenciales",
+    entrega: "12 meses",
+    precioMinimo: "$4,823,070",
+    precioMaximo: "800",
+    superficieMinima: "229.67",
+  },
+];
+
+const initData = sliderData[0];
