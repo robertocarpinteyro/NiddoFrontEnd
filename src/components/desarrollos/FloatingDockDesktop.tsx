@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { CurrentSlideData } from "../Niddia";
 
@@ -14,12 +13,12 @@ const FloatingDockDesktop = ({
   currentSlideData: CurrentSlideData;
   handleTabClick: (index: number, value: string) => void;
 }) => {
-  const mouseX = useMotionValue(Infinity);
+  const mouseX = useMotionValue<number>(Infinity); // Define explícitamente el tipo de mouseX como MotionValue<number>
 
   return (
     <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
+      onMouseMove={(e) => mouseX.set(e.pageX)} // Actualiza el valor de mouseX al mover el mouse
+      onMouseLeave={() => mouseX.set(Infinity)} // Resetea mouseX al salir
       className="fixed bottom-8 mx-auto flex gap-6 items-center rounded-xl bg-gray-900 text-white px-6 py-4 shadow-lg"
     >
       {items.map(({ name, icon, index, value }) => (
@@ -50,11 +49,12 @@ const TabIcon = ({
   index: number;
   isSelected: boolean;
   onClick: () => void;
-  mouseX: any;
+  mouseX: MotionValue<number>; // Define mouseX como MotionValue<number>
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const distance = useTransform(mouseX, (val) => {
+  const distance = useTransform(mouseX, (val: number) => {
+    // Asegúrate de que val es un número
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
