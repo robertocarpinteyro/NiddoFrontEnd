@@ -130,7 +130,7 @@ export function Niddia() {
                     {transitionData?.entrega}
                   </dd>
                   <dt className="text-base/7 text-gray-300">
-                    Tiempo de entrega
+                    Tiempo de entrega desde
                   </dt>
                 </div>
                 <div className="flex flex-col-reverse gap-1">
@@ -197,17 +197,17 @@ const sliderData = [
     title: "Casas",
     description:
       "En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños en los lotes residenciales de Bosque Real. Diseña tu hogar a medida, con un estilo único y adaptado a tus necesidades. ",
-    entrega: "Bosque Real",
-    precioMinimo: "500",
+    entrega: "Noviembre 2025 + 6 meses de gracia.",
+    precioMinimo: "$17 mdp",
     precioMaximo: "800",
     superficieMinima: "900",
   },
   {
-    img: "/img/SkyView.jpg",
+    img: "/img/skyview.jpg",
     title: "Departamentos",
     description:
       "Descubre los departamentos en Bosque Real, donde la modernidad y la naturaleza se fusionan. Con opciones amplias y acogedoras, encontrarás espacios diseñados para tu comodidad y estilo de vida.",
-    entrega: "12 meses",
+    entrega: "Marzo 2025 + 6 meses de gracia.",
     precioMinimo: "$7,980,000",
     precioMaximo: "800",
     superficieMinima: "114.65",
@@ -217,7 +217,7 @@ const sliderData = [
     title: "Oficinas",
     description:
       "Descubre nuestras oficinas en Bosque Real, un espacio ideal para el crecimiento de tu empresa. Este desarrollo moderno ofrece oficinas con diseño contemporáneo, amplias áreas de trabajo y vistas inigualables, todo en un entorno seguro y rodeado de áreas verdes.",
-    entrega: "12 meses",
+    entrega: "",
     precioMinimo: "$5,178,218.34",
     precioMaximo: "800",
     superficieMinima: "52.946",
@@ -227,7 +227,7 @@ const sliderData = [
     title: "Lotes",
     description:
       "Cada lote está diseñado con una urbanización de alta calidad y sistemas de seguridad avanzados. En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños en los exclusivos lotes residenciales",
-    entrega: "12 meses",
+    entrega: "",
     precioMinimo: "$4,823,070",
     precioMaximo: "800",
     superficieMinima: "229.67",

@@ -61,7 +61,7 @@ const mockData: GridData[] = [
     id: 1,
     desarrollador: "by Bosque Real",
     nombre: "Ciento Ochenta",
-    amenidades: "Desde 155m² a 215m² PREVENTA A PARTIR DE 9.6 mdp",
+    amenidades: "Desde 246m² a 627m² PREVENTA A PARTIR DE $14 mdp",
     logo: {
       url: "/img/logos/5.png",
       alternativeText: "Logo Proyecto A",
@@ -77,7 +77,7 @@ const mockData: GridData[] = [
     id: 2,
     desarrollador: "by Bosque Real",
     nombre: "Blue",
-    amenidades: "Desde 155m² a 215m² PREVENTA A PARTIR DE 9.6 mdp",
+    amenidades: "Desde 155m² a 215m² PREVENTA A PARTIR DE $9.6 mdp",
     logo: {
       url: "/img/logos/2.png",
       alternativeText: "Logo Proyecto A",
@@ -93,7 +93,7 @@ const mockData: GridData[] = [
     id: 3,
     desarrollador: "by Bosque Real",
     nombre: "Nox",
-    amenidades: "Desde 155m² a 215m² PREVENTA A PARTIR DE 9.6 mdp",
+    amenidades: "Desde 152m² a 174m² PREVENTA A PARTIR DE $10.1 mdp",
     logo: {
       url: "/img/logos/4.png",
       alternativeText: "Logo Proyecto A",
@@ -109,7 +109,7 @@ const mockData: GridData[] = [
     id: 4,
     desarrollador: "by Bosque Real",
     nombre: "Sky View",
-    amenidades: "Desde 332m² a 736m² ENTREGA INMEDIATA A PARTIR DE 19.9 mdp",
+    amenidades: "Desde 332m² a 736m² PREVENTA A PARTIR DE $19.9 mdp",
     logo: {
       url: "/img/logos/1.png",
       alternativeText: "Logo Proyecto A",
@@ -141,7 +141,7 @@ const mockData: GridData[] = [
     id: 6,
     desarrollador: "by Bosque Real",
     nombre: "Ivy",
-    amenidades: "Desde 255m² a 676m² ENTREGA INMEDIATA A PARTIR DE 13.4 mdp",
+    amenidades: "Desde 255m² a 676m² ENTREGA INMEDIATA A PARTIR DE 17.9 mdp",
     logo: {
       url: "/img/logos/6.png",
       alternativeText: "Logo Proyecto A",
