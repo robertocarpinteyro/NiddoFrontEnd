@@ -197,7 +197,7 @@ const sliderData = [
     title: "Casas",
     description:
       "En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños en los lotes residenciales de Bosque Real. Diseña tu hogar a medida, con un estilo único y adaptado a tus necesidades. ",
-    entrega: "Noviembre 2025 + 6 meses de gracia.",
+    entrega: "Agosto 2025 + 6 meses de gracia.",
     precioMinimo: "$15 mdp",
     precioMaximo: "800",
     superficieMinima: "420",
