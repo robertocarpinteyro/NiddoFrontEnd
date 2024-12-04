@@ -130,7 +130,7 @@ export function Niddia() {
                     {transitionData?.entrega}
                   </dd>
                   <dt className="text-base/7 text-gray-300">
-                    Tiempo de entrega desde
+                    Fecha de entrega desde
                   </dt>
                 </div>
                 <div className="flex flex-col-reverse gap-1">
